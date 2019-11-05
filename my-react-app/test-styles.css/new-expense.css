@@ -5,11 +5,18 @@
 	text-align:center;
 }
 
-#form-main{
+#form-expense{
     width:100%;
 	padding-top:0px;
     background: url('https://www.jonesday.com/-/media/images/publications/1/01/illinois-enacts-new-employee-expense-reimbursement/extensionceogimageoverride/illinoisenactsnewlawrelatinglongformcommentarysoci.jpg');
     background-size: cover;
+}
+
+#form-income{
+	width:100%;
+	padding-top:0px;
+    background-size: cover;
+	background-image: url('http://www.arborinvestmentplanner.com/wp-content/uploads/2012/12/IncomeStatement2.jpg');
 }
 
 #form-div {
