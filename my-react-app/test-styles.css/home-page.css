@@ -91,9 +91,9 @@ nav ul li a{
 nav ul li:hover{
     background: var(--color-hover);
 }
-nav ul li.active{
-    background: var(--color-dark);;
-}
+/* nav ul li a:visited{
+    background-color: yellow;
+} */
 
 footer{
     padding: 15px;
