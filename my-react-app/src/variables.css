@@ -1,0 +1,15 @@
+:root {
+    --font-size-body: 14px; 
+    --font-size-body-big: 16px;
+    --font-size-body-bigger: 18px;
+    --font-size-body-large: 20px;
+
+    --color-primery: rgb(237, 237, 237);
+    --color-hover: rgb(26, 188, 156);
+    --color-dark: rgb(194, 204, 204);
+    --color-darker: rgb(59, 61, 56);
+
+    --color-body-bgrd: linear-gradient(to top, #7ca8b2, #8eb1b7, #9fbabd, #b1c3c4, #c2cccc);
+    
+    --layout-main-width: 70em;
+}
