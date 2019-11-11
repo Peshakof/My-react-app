@@ -9,6 +9,7 @@ nav{
     height: 50px;
     background: rgba(0, 0, 0,0.8);;
     position: fixed;
+    z-index: 100;
     top: 0px;
     opacity: 0.8;
 }
@@ -22,16 +23,16 @@ nav ul{
 
 nav ul li{
     list-style: none;
-}
-
-nav ul li a{
     display:block;
-    color: white;
     padding: 0 25px;
-    text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     line-height:50px;
+    color: white;
+}
+
+.link{
+    text-decoration: none;
 }
 
 nav ul li:hover{

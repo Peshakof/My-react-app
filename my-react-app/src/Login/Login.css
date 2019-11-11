@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
 /*******************
 SELECTION STYLING
@@ -25,19 +26,19 @@ BODY STYLING
 }
 
 body {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight:300;
+	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight:400;
 	text-align: left;
 	text-decoration: none;
-  height: 500px;
-  
+	height: 500px;
 }
 
 #wrapper {
 	/* Center wrapper perfectly */
+	/* background-color: var(--color-darker); */
 	width: 300px;
 	height: 400px;
-  margin: 70px auto;
+    margin: 70px auto;
 }
 
 /*******************
@@ -47,7 +48,7 @@ LOGIN FORM
 .login-form {
 	width: 300px;
 	margin: 0 auto;
-	position: relative;
+    position: relative;
 	
 	background: #f3f3f3;
 	border: 1px solid #fff;
@@ -67,7 +68,7 @@ HEADER
 }
 
 .login-form .header h1 {
-	font-family: 'Bree Serif', serif;
+	font-family: 'Roboto', serif;
 	font-weight: 300;
 	font-size: 28px;
 	line-height:34px;
@@ -96,7 +97,7 @@ CONTENT
 	width: 188px;
 	padding: 15px 25px;
 	
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	color: #9d9e9e;
@@ -191,7 +192,7 @@ FOOTER
 	float:right;
 	padding: 11px 25px;
 	
-	font-family: 'Bree Serif', serif;
+	font-family: 'Roboto', serif;
 	font-weight: 300;
 	font-size: 18px;
 	color: #fff;
@@ -232,7 +233,7 @@ FOOTER
 	border: none;
 	cursor: pointer;
 	
-	font-family: 'Bree Serif', serif;
+	font-family: 'Roboto', serif;
 	font-weight: 300;
 	font-size: 18px;
 	color: #414848;

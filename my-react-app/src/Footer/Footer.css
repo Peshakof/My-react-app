@@ -3,4 +3,9 @@ footer{
     text-align: center;
     background: rgba(0, 0, 0,0.8);
     color: white;
+    margin: 2em 0 0 0;
+}
+
+.Footer {
+    padding: 0;
 }

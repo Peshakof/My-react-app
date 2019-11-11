@@ -1,7 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
-.chart{
+.chart {
     font-family: 'Roboto' sans-serif;  
+}
+
+.container {
+    margin-top: 150px;
 }
 
 .chart .metric {
@@ -22,6 +26,7 @@
     text-align: left;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, .175);  
 }
+
 p{
     display: flex;
     line-height: 20px;
