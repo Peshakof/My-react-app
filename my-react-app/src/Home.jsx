@@ -4,9 +4,12 @@ import Features from './Features/Features';
 import Footer from './Footer/Footer';
 import Login from './Login/Login';
 import Register from './Registration/Register';
-import Chart from './Horizontal-chart/Chart';
+// import Chart from './Horizontal-chart/Chart';
+import Dashboard from './Dashboard/Dashboard';
 import AddExpense from './Expense/Add-expense';
 import AddIncome from './Income/Add-income';
+// import DonutChartComponent from './Donut-chart/Donut';
+
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -21,10 +24,10 @@ function Home() {
         <Route path="/" exact component={Features} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Chart} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/add-expense" component={AddExpense} />
+        <Route path="/add-income" component={AddIncome} />
       </Switch>
-      <Route path="/add-expense" component={AddExpense} />
-      <Route path="/add-income" component={AddIncome} />
       <Footer />
     </div>
     </Router>

@@ -1,11 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
+.Chart{
+    width: 50em;
+    justify-content: center;
+}
+
 .chart {
     font-family: 'Roboto' sans-serif;  
 }
 
 .container {
-    margin-top: 150px;
+    margin-top: 2em;
 }
 
 .chart .metric {

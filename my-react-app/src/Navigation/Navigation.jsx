@@ -17,11 +17,11 @@ function Navigation(){
                     <Link className="link" to="/dashboard">
                     <li className="active">Dashboard</li>
                     </Link>
-                    <Link className="link" to="/expenses">
-                    <li className="active">Expenses</li>
+                    <Link className="link" to="/add-expense">
+                    <li className="active">Add Expense</li>
                     </Link>
-                    <Link className="link" to="/income">
-                    <li className="active">Income</li>
+                    <Link className="link" to="/add-income">
+                    <li className="active">Add Income</li>
                     </Link>
                     <Link className="link" to="/logout">
                     <li className="active">Logout</li>
