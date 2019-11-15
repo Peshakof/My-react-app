@@ -3,7 +3,7 @@ import Navigation from './Navigation/Navigation';
 import Features from './Features/Features';
 import Footer from './Footer/Footer';
 import Login from './Login/Login';
-import Register from './Registration/Register';
+import Register from './Registration/Register.jsx';
 // import Chart from './Horizontal-chart/Chart';
 import Dashboard from './Dashboard/Dashboard';
 import AddExpense from './Expense/Add-expense';

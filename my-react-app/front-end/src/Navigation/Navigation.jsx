@@ -26,6 +26,12 @@ function Navigation(){
                     <Link className="link" to="/logout">
                     <li className="active">Logout</li>
                     </Link>
+                    <Link className="link" to="/login">
+                    <li className="active">Login</li>
+                    </Link>
+                    <Link className="link" to="/register">
+                    <li className="active">Register</li>
+                    </Link>
                     
                 </ul>
                 </nav>

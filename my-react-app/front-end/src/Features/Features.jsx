@@ -5,13 +5,13 @@ import './Features.css';
 function Features() {
     return (
         <div className="Features">
-            <section class="sec1">
+            <section className="sec1">
 
             <header>
                 <h1>Personal finance application that makes money management easy</h1>
             </header>
 
-            <section class="sec2">
+            <section className="sec2">
                 <h2>Features:</h2>
                 <ul>
                     <li>
