@@ -4,6 +4,7 @@ import Features from './Features/Features';
 import Footer from './Footer/Footer';
 import Login from './Login/Login';
 import Register from './Registration/Register.jsx';
+import NotFound from './NotFound/NotFound';
 // import Chart from './Horizontal-chart/Chart';
 import Dashboard from './Dashboard/Dashboard';
 import AddExpense from './Expense/Add-expense';
@@ -27,6 +28,7 @@ function Home() {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/add-expense" component={AddExpense} />
         <Route path="/add-income" component={AddIncome} />
+        <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
     </div>
