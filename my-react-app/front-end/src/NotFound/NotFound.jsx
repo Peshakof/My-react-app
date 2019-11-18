@@ -4,10 +4,10 @@ import './404.scss';
 function NotFound() {
     return (
         <div className="NotFound">
-            <div class="error">404</div>
+            <div className="error">404</div>
             <br /><br />
-            <span class="info">File not found</span>
-            <img src="http://images2.layoutsparks.com/1/160030/too-much-tv-static.gif" class="static" />
+            <span className="info">File not found</span>
+            <img src="http://images2.layoutsparks.com/1/160030/too-much-tv-static.gif" class="static" alt="tv-static" />
         </div>
     )
 }

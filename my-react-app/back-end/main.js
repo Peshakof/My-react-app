@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000', // check the react app port
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 

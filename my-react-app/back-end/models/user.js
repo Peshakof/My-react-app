@@ -13,8 +13,16 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
-});
+    },
+    expenses: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Expense'
+    }],
+    incomes: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Income'
+    }]
+})
 
 UserSchema.pre('save', function(next) {
     // Check if document is new or a new password has been set

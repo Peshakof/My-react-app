@@ -32,14 +32,13 @@ class Register extends Component {
             // repeatPass: this.state.repeatPass
 
         axios
-            .post(`${host}/register`, {username, password})
+            .post(`${host}/user/register`, {username, password})
             .then(res => {
                 console.log(res.data);
             })
             .catch(err => {
                 console.error(err);
-            });
-        
+        });
     }
 
     render() {

@@ -1,27 +1,71 @@
 import React from 'react';
 import './Expense.css';
 
-function AddExpense() {
+import axios from 'axios';
+const host = 'http://localhost:8080/api';
 
-    return (
-        <div id="form-expense">
-            <div id="form-div">
+class AddExpense extends React.Component {
+    constructor(props) {
+        super(props);
 
-                <form className="form" id="form1">
+        this.state = {
+            merchant: '',
+            price: 0,
+            date: '2019/11/01',
+            category: '',
+            text: ''
+        }
 
-                    <p className="merchant">
-                        <input name="merchant" type="text" className="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Merchant" id="merchant" />
-                    </p>
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-                    <p className="price">
-                        <input name="price" type="number" className="validate[required,custom[email]] feedback-input" id="price" placeholder="Price" />
-                    </p>
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
 
-                    <p>
-                        <input name="date" type="date" className="feedback-input" placeholder="Date" id="date" />
-                    </p>
+    handleSubmit(event) {
+        event.preventDefault();
 
-                        <select name="category" id="category">
+        const expense = {
+            merchant: this.state.merchant,
+            price: this.state.price,
+            date: this.state.date,
+            category: this.state.category,
+            text: this.state.text
+        }
+
+        axios
+            .post(`${host}/expense/addExpense`, expense)
+            .then(res => {
+                console.log(res.data)
+            }) 
+            .catch(err => {
+                console.error(err);
+            });   
+        //TODO implement axios call
+    }
+
+    render() {
+        return (
+            <div id="form-expense">
+                <div id="form-div">
+                    <form className="form" id="form1" onSubmit={this.handleSubmit}>
+                        <p className="merchant">
+                            <input name="merchant" type="text" className="feedback-input" placeholder="Merchant" id="merchant" value={this.state.merchant} onChange={this.handleChange} />
+                        </p>
+
+                        <p className="price">
+                            <input name="price" type="number" className="feedback-input" id="price" placeholder="Price" value={this.state.price} onChange={this.handleChange} />
+                        </p>
+
+                        <p>
+                            <input name="date" type="date" className="feedback-input" placeholder="Date" id="date" value={this.state.date} onChange={this.handleChange} />
+                        </p>
+
+                        <select name="category" id="category" value={this.state.category} onChange={this.handleChange}>
                             <option value="Bills">Bills</option>
                             <option value="Rents">Rents</option>
                             <option value="Entertainment">Entertainment</option>
@@ -35,17 +79,18 @@ function AddExpense() {
                         </select>
 
                         <p className="text">
-                            <textarea name="text" className="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+                            <textarea name="text" className="feedback-input" id="comment" placeholder="Comment" value={this.state.text} onChange={this.handleChange}></textarea>
                         </p>
 
                         <div className="submit">
                             <input type="submit" value="Add expense" id="button-blue" />
                             <div className="ease"></div>
                         </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
-        
+
 export default AddExpense;

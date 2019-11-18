@@ -11,7 +11,7 @@ function Dashboard() {
             {/* for demo wrap */}
             <h1>Expenses history</h1>
             <div className="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table cellPadding="0" cellSpacing="0" border="0">
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -23,7 +23,7 @@ function Dashboard() {
                 </table>
             </div>
             <div className="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table cellPadding="0" cellSpacing="0" border="0">
                     <tbody>
                         <tr>
                             <td>11.06.2019</td>
