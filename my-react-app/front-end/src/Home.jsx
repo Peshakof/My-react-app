@@ -10,6 +10,7 @@ import Dashboard from './Dashboard/Dashboard';
 import AddExpense from './Expense/Add-expense';
 import AddIncome from './Income/Add-income';
 // import DonutChartComponent from './Donut-chart/Donut';
+import { ToastContainer } from 'react-toastify';
 
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -32,6 +33,17 @@ function Home() {
       </Switch>
       <Footer />
     </div>
+    <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+          pauseOnHover
+        />
     </Router>
   );
 }
