@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+.donut-wrap{
+    flex-basis: 30%;
+}
+
+.donut {
+    width: 20em;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.7em;
+    font-weight: 300;
+}
+
