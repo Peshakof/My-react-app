@@ -6,7 +6,7 @@ import Login from './components/Login';
 import Register from './components/Registration';
 import NotFound from './components/NotFound';
 import Dashboard from './components/Dashboard';
-import AddExpense from './components/Expense';
+import AddExpense from './components/NewExpense';
 import AddIncome from './components/Income';
 import { ToastContainer } from 'react-toastify';
 
@@ -32,7 +32,7 @@ function Home() {
     </div>
     <ToastContainer
           position="top-center"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar
           newestOnTop
           closeOnClick

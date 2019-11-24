@@ -36,14 +36,13 @@ class Register extends Component {
         const username = this.state.username
         const password = this.state.password
         const repeatPass = this.state.repeatPass
-
+        
         if(registerValidator(username, password, repeatPass)) {
-
+    
             axios
-                .post(`${host}/user/register`, {username, password})
+                .post(`${host}/user/register`, {username, password, repeatPass})
                 .then(res => {
                     toast.success('Successfully registered');
-                    console.log(res.data);
                 })
                 .catch(err => {
                     console.error(err);

@@ -24,6 +24,12 @@ const UserSchema = new Schema({
     }]
 })
 
+UserSchema.methods = {
+  matchPassword: function (password) {
+    return bcrypt.compare(password, this.password);
+  }
+};
+
 UserSchema.pre('save', function(next) {
     // Check if document is new or a new password has been set
     if (this.isNew || this.isModified('password')) {

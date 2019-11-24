@@ -8,7 +8,14 @@ router.post('/addExpense', (req, res, next) => {
         res.send(expense)
       })
       .catch(next);
+});
 
+router.get('/getExpenses', (req, res, next) => {
+  Expense.find()
+    .then((expenses) => {
+      res.send(expenses);
+    })
+    .catch(next);
 });
 
 module.exports = router;
