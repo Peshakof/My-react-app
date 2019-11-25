@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-
 import signInValidator from '../../utils/loginFormValidator';
+import userService from '../../services/user-service';
 
 import './Login.css';
-import 'react-toastify/dist/ReactToastify.css';
-
-const host = 'http://localhost:8080/api';
 
 
 class Login extends Component {
@@ -36,15 +31,8 @@ class Login extends Component {
         const password = this.state.password;
 
         if(signInValidator(username, password)) {
-            axios
-                .post(`${host}/user/login`, {username, password})
-                .then( () => {
-                    toast.success('You successfully logged in!');
-                    this.props.history.push('/');
-                })
-                .catch(err => {
-                    console.error(err);
-            });        
+            userService.login(username, password);
+            this.props.history.push('/');
         }        
     }
 

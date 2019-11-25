@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-
+import userService from '../../services/user-service'
 import registerValidator from '../../utils/registerValidation';
 
 import './Register.css';
-import 'react-toastify/dist/ReactToastify.css';
 
-const host = 'http://localhost:8080/api';
 
 class Register extends Component {
 
@@ -38,15 +34,8 @@ class Register extends Component {
         const repeatPass = this.state.repeatPass
         
         if(registerValidator(username, password, repeatPass)) {
-    
-            axios
-                .post(`${host}/user/register`, {username, password, repeatPass})
-                .then(res => {
-                    toast.success('Successfully registered');
-                })
-                .catch(err => {
-                    console.error(err);
-            });
+            userService.register(username, password);
+            this.props.history.push('/login');
         }      
     }
 
