@@ -1,6 +1,6 @@
-const db = require('./db');
+const db = require('./config/db');
 
 db.then(() => {
   console.log('Connected to db successfully');
-  require('./main');
+  require('./config/main');
 })

@@ -1,12 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import DonutChart from '../Donut-chart';
-// import ExpenseCard from './expense-card';
-import axios from 'axios';
+import expenseService from '../../services/expense-service';
 
 import './Dashboard.css';
-// import expenseValidator from '../../utils/expenseValidator';
 
-const host = 'http://localhost:8080/api';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -20,14 +17,10 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        axios
-            .get(`${host}/expense/getExpenses`)
-            .then((response) => {
-                this.setState({ expenses: response.data });
+        expenseService.getAll()
+            .then(res => {
+                this.setState({ expenses: res.data})
             })
-            .catch(err => {
-                console.error(err)
-            });
     }
 
     renderAllExpenses() {

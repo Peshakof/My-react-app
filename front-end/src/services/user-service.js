@@ -7,13 +7,13 @@ const host = 'http://localhost:8080/api';
 
 const userRequester = {
   register: (username, password) => {
-    return axios
+    axios
       .post(`${host}/user/register`, {
         username,
         password,
         // repeatPass
       })
-      .then(res => {
+      .then(() => {
         toast.success('Successfully registered');
       })
       .catch(err => {
@@ -22,7 +22,7 @@ const userRequester = {
   },
 
   login: (username, password) => {
-    axios
+   axios
       .post(`${host}/user/login`, {
         username,
         password
@@ -31,7 +31,8 @@ const userRequester = {
         toast.success('You successfully logged in!');
       })
       .catch(err => {
-        console.error(err);
+        toast.error('Incorrect username or password!');
+        return false;
       });
   }
 }

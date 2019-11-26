@@ -5,23 +5,23 @@ const Schema = mongoose.Schema;
 const saltRounds = 10;
 
 const UserSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    expenses: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Expense'
-    }],
-    incomes: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Income'
-    }]
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  expenses: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Expense'
+  }],
+  incomes: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Income'
+  }]
 })
 
 UserSchema.methods = {
@@ -30,24 +30,21 @@ UserSchema.methods = {
   }
 };
 
-UserSchema.pre('save', function(next) {
-    // Check if document is new or a new password has been set
-    if (this.isNew || this.isModified('password')) {
-      // Saving reference to this because of changing scopes
-      const document = this;
-      bcrypt.hash(document.password, saltRounds,
-        function(err, hashedPassword) {
+UserSchema.pre('save', function (next) {
+  if (this.isModified('password')) {
+    bcrypt.genSalt(saltRounds, (err, salt) => {
+      bcrypt.hash(this.password, salt, (err, hash) => {
         if (err) {
           next(err);
+          return
         }
-        else {
-          document.password = hashedPassword;
-          next();
-        }
+        this.password = hash;
+        next();
       });
-    } else {
-      next();
-    }
+    });
+    return;
+  }
+  next();
 });
 
 module.exports = mongoose.model('User', UserSchema);
