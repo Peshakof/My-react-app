@@ -5,14 +5,14 @@
     flex-wrap: wrap;
     background-image: url('https://www.expensepoint.com/wp-content/uploads/2015/06/the-most-common-expense-report-fraud-schemes.jpg');
     background-size: cover;
-}
-
-.table-wrap{
+  }
+  
+  .table-wrap{
+    flex-basis: 40%;
     margin: 50px 0;
     background-size: cover;
     height: auto;
     padding: 3em 0;
-    flex-basis: 50%;
 }
 
 h1{
@@ -67,7 +67,7 @@ h1{
   td:nth-child(4),
   th:nth-child(1),
   th:nth-child(4){
-    width: 15%;
+    width: 20%;
   }
   
   /* demo styles */

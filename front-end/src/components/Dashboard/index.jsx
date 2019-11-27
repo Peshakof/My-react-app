@@ -73,7 +73,7 @@ class Dashboard extends Component {
                 </div>    
             </section>
             {/* <Chart /> */}
-            <DonutChart />
+            <DonutChart expenses={this.state.expenses}/>
         </div>    
         )
     }

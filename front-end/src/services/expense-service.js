@@ -7,9 +7,7 @@ const expenseRequester = {
     return axios.get(`${host}/expense/getExpenses`);
   },
 
-  getByCategory: () => {
-    return axios.get(`${host}/expense/getByCategory`);
-  }
+  
 }
 
 export default expenseRequester;

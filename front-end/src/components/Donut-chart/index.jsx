@@ -1,55 +1,75 @@
-import React, { Component } from 'react';
+import React from 'react';
 import DonutChart from 'react-donut-chart';
-import expenseService from '../../services/expense-service';
+import getTotalAmount from './getTotalAmount'
 
 import './Donut.css';
 
-class DonutChartComponent extends Component {
+function DonutChartComponent(props) {
 
-    constructor(props) {
-        super(props);
+    const expenses = props.expenses;
 
-        this.state = {
-            expenses: []
-        }
-    }
+    const totalRents = getTotalAmount('Rents', expenses);
+    const totalClothes = getTotalAmount('Clothes', expenses);
+    const healthTotal = getTotalAmount('Health', expenses);
+    const petTotal = getTotalAmount('Pet', expenses);
+    const toiletryTotal = getTotalAmount('Toiletry', expenses);
+    const entertainmentTotal = getTotalAmount('Entertainment', expenses);
+    const foodTotal = getTotalAmount('Food', expenses);
+    const houseTotal = getTotalAmount('House', expenses);
+    const totalBills = getTotalAmount('Bills', expenses);
+    const transportTotal = getTotalAmount('Transport', expenses);
 
-    componentDidMount() {
-        expenseService.getByCategory()
-            .then(res => {
-                this.setState({ expenses: res.data});
-            })
-    }
+    console.log(typeof(totalBills))
 
-    render() {
-        const expenses = this.state.expenses.sort((a, b) => {
-            return b.length - a.length;
-        })
-        console.log(expenses)
-        return (
-            <div className="donut-wrap">
-                <DonutChart className="donut"
-                    outerRadius="0.70"
-                    innerRadius="0.55"
-                    data={[
-                        
-
-                        // {
-                        //     label: 'ReactJS',
-                        //     value: 125,
-                        // },
-                        // {
-                        //     label: 'AngularJS',
-                        //     value: 275,
-                        // },
-                        // {
-                        //     label: 'VueJS',
-                        //     value: 15
-                        // }
-                    ]} />
-            </div>
-        )
-    }
+    return (
+        <div className="donut-wrap">
+            <DonutChart className="donut"
+                outerRadius="0.85"
+                innerRadius="0.50"
+                data={[
+                    {
+                        label: 'Rents',
+                        value: totalRents
+                    },
+                    {
+                        label: 'Clothes',
+                        value: totalClothes
+                    },
+                    {
+                        label: 'Health',
+                        value: healthTotal
+                    },
+                    {
+                        label: 'Pet',
+                        value: petTotal
+                    },
+                    {
+                        label: 'Entertainment',
+                        value: entertainmentTotal
+                    },
+                    {
+                        label: 'Toiletry',
+                        value: toiletryTotal
+                    },
+                    {
+                        label: 'Food',
+                        value: foodTotal
+                    },
+                    {
+                        label: 'Bills',
+                        value: totalBills
+                    },
+                    {
+                        label: 'House',
+                        value: houseTotal
+                    },
+                    {
+                        label: 'Transport',
+                        value: transportTotal
+                    },
+                ]} />
+        </div>
+    )
 }
 
 export default DonutChartComponent;
