@@ -69,7 +69,7 @@ class AddExpense extends React.Component {
                             <input name="price" type="number" className="feedback-input" id="price" placeholder="Price" value={this.state.price} onChange={this.handleChange} />
                         </p>
 
-                        <p>
+                        <p className="date">
                             <input name="date" type="date" className="feedback-input" placeholder="Date" id="date" value={this.state.date} onChange={this.handleChange} />
                         </p>
 

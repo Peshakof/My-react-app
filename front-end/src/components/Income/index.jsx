@@ -8,7 +8,7 @@ function AddIncome() {
                 <form class="form" id="form1">
 
                     <p class="price">
-                        <input name="price" type="number" class="validate[required,custom[email]] feedback-input" id="price" placeholder="Price" />
+                        <input name="price" type="number" class="feedback-input" id="price" placeholder="Price" />
                     </p>
 
                     <p><input type="date" class="feedback-input" placeholder="Date" id="date" /></p>
@@ -21,7 +21,7 @@ function AddIncome() {
                         </select>
 
                     <p class="text">
-                        <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+                        <textarea name="text" class="feedback-input" id="comment" placeholder="Comment"></textarea>
                     </p>
 
                     <div class="submit">
