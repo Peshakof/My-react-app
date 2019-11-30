@@ -8,6 +8,7 @@ import NotFound from './components/NotFound';
 import Dashboard from './components/Dashboard';
 import AddExpense from './components/NewExpense';
 import AddIncome from './components/Income';
+import ExpensePage from './components/ExpensePage';
 import { ToastContainer } from 'react-toastify';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -26,6 +27,7 @@ function Home() {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/add-expense" component={AddExpense} />
         <Route path="/add-income" component={AddIncome} />
+        <Route path="/expense-info" component={ExpensePage} />
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
