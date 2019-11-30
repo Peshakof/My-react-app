@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import Expenses from './ExpenseList';
 import DonutChart from '../Donut-chart';
 import expenseService from '../../services/expense-service';
 
@@ -12,8 +13,6 @@ class Dashboard extends Component {
         this.state = {
             expenses: []
         }
-
-        this.renderAllExpenses = this.renderAllExpenses.bind(this);
     }
 
     componentDidMount() {
@@ -23,34 +22,11 @@ class Dashboard extends Component {
             })
     }
 
-    renderAllExpenses() {
-        const expenses = this.state.expenses;
-
-        return(
-            <Fragment>
-                {
-                    expenses.map(expense => {
-                        expense.date = expense.date.slice(0, 10);
-                        return(
-                            <tr key={expense._id}>
-                                <td>{expense.date}</td>
-                                <td>{expense.category}</td>
-                                <td>{expense.merchant}</td>
-                                <td>{expense.price}</td>
-                            </tr>
-                        )
-                    })
-                }
-            </Fragment>
-        )
-    }
-
     render() {
 
         return (
         <div className="Dashboard">    
             <section className="table-wrap">
-                {/* for demo wrap */}
                 <h1>Expenses history</h1>
                 <div className="tbl-header">
                     <table cellPadding="0" cellSpacing="0" border="0">
@@ -67,12 +43,11 @@ class Dashboard extends Component {
                 <div className="tbl-content">
                     <table cellPadding="0" cellSpacing="0" border="0">
                         <tbody>
-                            {this.renderAllExpenses()}
+                            <Expenses expenses={this.state.expenses} />
                         </tbody>
                     </table>
                 </div>    
             </section>
-            {/* <Chart /> */}
             <DonutChart expenses={this.state.expenses}/>
         </div>    
         )
