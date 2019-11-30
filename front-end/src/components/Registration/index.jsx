@@ -44,8 +44,6 @@ class Register extends Component {
             <div className="Register">
                 <div id="bg"></div>
     
-                <div id="wrapper">
-    
                 <form className="register-form" onSubmit={this.handleSubmit}>
                 
                     <div className="header">
@@ -69,7 +67,6 @@ class Register extends Component {
                 
                 </form>
     
-                </div>
                 <div className="gradient"></div>
             </div>    
         )

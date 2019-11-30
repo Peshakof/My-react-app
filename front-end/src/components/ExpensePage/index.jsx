@@ -31,7 +31,7 @@ function ExpensePage() {
             </div>
           </div>
         </div>
-        <div className="footer">
+        <div className="expenseForm-footer">
           <button className="save left">Edit <i className="fa fa-star"></i></button>
           <button className="right" id="add-to-cart">Delete</button>
         </div>

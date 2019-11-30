@@ -1,9 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
-/*******************
-SELECTION STYLING
-*******************/
 
 ::selection {
 	color: #fff;
@@ -14,10 +11,6 @@ SELECTION STYLING
 	background: #f676b2; /* Firefox */
 }
 
-/*******************
-BODY STYLING
-*******************/
-
 * {
 	margin: 0;
 	padding: 0;
@@ -25,43 +18,25 @@ BODY STYLING
 	outline: none;
 }
 
-body {
-	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight:300;
-	text-align: left;
-	text-decoration: none;
-	height: 500px;
+.Register {
+	max-width: 420px;
+	height: 35em;
+	margin: 3.5em auto;
+	display: flex;
+	justify-content: center;
 }
-
-#wrapper {
-	/* Center wrapper perfectly */
-	width: 300px;
-	height: 400px;
-	margin: 70px auto;
-	padding: 3em 0 5em 0;
-}
-
-/*******************
-LOGIN FORM
-*******************/
 
 .register-form {
 	width: 300px;
-	margin: 0 auto;
+	height: 28em;
+	margin-top: 4em;
 	position: relative;
-	
+	overflow: hidden;
 	background: #f3f3f3;
 	border: 1px solid #fff;
 	border-radius: 5px;
-	
-	box-shadow: 0 1px 3px rgba(0,0,0,0.9);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	box-shadow:2px 5px 16px 0px rgb(20, 199, 13), 5px 5px 15px 5px rgba(0,0,0,0);
 }
-
-/*******************
-HEADER
-*******************/
 
 .register-form .header {
 	padding: 40px 30px 30px 30px;
@@ -84,15 +59,10 @@ HEADER
 	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
 }
 
-/*******************
-CONTENT
-*******************/
-
 .register-form .content {
 	padding: 0 30px 25px 30px;
 }
 
-/* Input field */
 .register-form .content .input {
 	width: 188px;
 	padding: 15px 25px;
@@ -112,7 +82,6 @@ CONTENT
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
 }
 
-/* Second input field */
 .register-form .content .password, .register-form .content .pass-icon {
 	margin-top: 25px;
 }
@@ -171,10 +140,6 @@ CONTENT
 	-ms-transition: all 0.5s ease;
 }
 
-/*******************
-FOOTER
-*******************/
-
 .register-form .footer {
 	padding: 25px 30px 40px 30px;
 	overflow: auto;
@@ -187,7 +152,6 @@ FOOTER
 	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
 }
 
-/* Register button */
 .register-form .footer .register-btn {
 	float:right;
 	padding: 11px 25px;
@@ -222,7 +186,6 @@ FOOTER
 	bottom: -1px;
 }
 
-/* Login button */
 .register-form .footer .login-btn {
 	display: block;
 	float: left;
