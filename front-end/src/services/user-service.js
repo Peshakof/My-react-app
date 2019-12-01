@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import sessionManager from '../utils/session-manager';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -27,13 +28,23 @@ const userRequester = {
         username,
         password
       })
-      .then(() => {
+      .then((res) => {
+        const { token, user } = res.data;
+        sessionManager.save(token, user.username);
         toast.success('You successfully logged in!');
       })
       .catch(err => {
         toast.error('Incorrect username or password!');
         return false;
       });
+  },
+  
+  logout: () => {
+    axios.post(`${host}/user/logout`)
+      .then((res) => {
+        sessionManager.clear()
+        toast.success(`${res}`);
+      })
   }
 }
 

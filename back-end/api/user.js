@@ -20,17 +20,22 @@ router.post('/login', (req, res, next) => {
           }
           return Promise.all([user, user.matchPassword(password)])
         })
-        .then(([user, match]) => {
+        .then(async([user, match]) => {
           if (!match) {
             res.status(401).send('Invalid password');
             return;
           }
 
-          const token = jwt.create({ id: user._id });
-          res.cookie(config.authCookieName, token).send(user);
+          const token = await jwt.create({ id: user._id });
+          res.cookie(config.authCookieName, token)
+          res.send({token,user});
         })
         .catch(next);
-});    
+}); 
+
+router.post('/logout', (req, res, next) => {
+  res.clearCookie(config.authCookieName).send('Logout successfully!');
+})
 
 
 module.exports = router;

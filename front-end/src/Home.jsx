@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Features from './components/Features';
 import Footer from './components/Footer';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Register from './components/Registration';
 import NotFound from './components/NotFound';
 import Dashboard from './components/Dashboard';
@@ -22,12 +23,13 @@ function Home() {
       <Navigation />
       <Switch>
         <Route path="/" exact component={Features} />
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/add-expense" component={AddExpense} />
-        <Route path="/add-income" component={AddIncome} />
-        <Route path="/expense-info" component={ExpensePage} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/logout" exact component={Logout} />
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/add-expense" exact component={AddExpense} />
+        <Route path="/add-income" exact component={AddIncome} />
+        <Route path="/expense-info" exact component={ExpensePage} />
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />

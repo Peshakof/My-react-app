@@ -4,7 +4,7 @@ const secret = '321321';
 module.exports = {
   create: function (data) {
     return new Promise((resolve, reject) =>
-      jwt.sign(data, secret, { expiresIn: '1h' }, (err, token) => {
+      jwt.sign(data, secret, { expiresIn: '10m' }, (err, token) => {
         if (err) { reject(err); return; }
         resolve(token);
       }));

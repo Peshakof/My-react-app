@@ -32,7 +32,6 @@ class Login extends Component {
 
         if(signInValidator(username, password)) {
             userService.login(username, password)
-            
         }        
     }
 

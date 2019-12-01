@@ -19,13 +19,11 @@ function DonutChartComponent(props) {
     const totalBills = getTotalAmount('Bills', expenses);
     const transportTotal = getTotalAmount('Transport', expenses);
 
-    console.log(typeof(totalBills))
-
     return (
         <div className="donut-wrap">
             <DonutChart className="donut"
-                outerRadius="0.85"
-                innerRadius="0.50"
+                outerRadius={0.85}
+                innerRadius={0.65}
                 data={[
                     {
                         label: 'Rents',
