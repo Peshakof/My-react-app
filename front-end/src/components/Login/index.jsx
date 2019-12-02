@@ -1,77 +1,97 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import signInValidator from '../../utils/loginFormValidator';
 import userService from '../../services/user-service';
 
+
 import './Login.css';
 
+function Login(props) {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-class Login extends Component {
-    constructor(props) {
-        super(props);
+    const updateName = e => {
+        setUsername(e.target.value);
+    };
 
-        this.state = {
-            username: '',
-            password: ''
-        }
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    const updatePassword = e => {
+        setPassword(e.target.value);
     }
 
-    handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+    const handleSubmit = e => {
+        e.preventDefault();
 
-    handleSubmit(event) {
-        event.preventDefault();
-
-        const username = this.state.username;
-        const password = this.state.password;
-
-        if(signInValidator(username, password)) {
+        if (signInValidator(username, password)) {
             userService.login(username, password)
-        }        
+            props.history.push('/');
+        }
     }
 
-    render() {
-        return (
-            <div className="Login">
-                <div id="bg"></div>
+    // constructor(props) {
+    //     super(props);
 
-                <div id="wrapper">
+    //     this.state = {
+    //         username: '',
+    //         password: ''
+    //     }
 
-                    <form name="login-form" className="login-form" onSubmit={this.handleSubmit}>
+    //     this.handleChange = this.handleChange.bind(this);
+    //     this.handleSubmit = this.handleSubmit.bind(this);
+    // }
 
-                        <div className="header">
-                            <h1>Login Form</h1>
-                            <span>Fill out the form below to login.</span>
-                        </div>
+    // handleChange(event) {
+    //     this.setState({
+    //         [event.target.name]: event.target.value
+    //     })
+    // }
 
-                        <div className="content">
-                            <input name="username" type="text" className="input username" 
-                            placeholder="Username" value={this.state.username}
-                            onChange={this.handleChange}/>
-                            <div className="user-icon"></div>
-                            <input name="password" type="password" className="input password"
-                            placeholder="Password" value={this.state.password}
-                            onChange={this.handleChange} />
-                            <div className="pass-icon"></div>
-                        </div>
+    // handleSubmit(event) {
+    //     event.preventDefault();
 
-                        <div className="footer">
-                            <input type="submit" name="submit" value="Login" className="button" />
-                            <input type="submit" name="submit" value="Register" className="register" />
-                        </div>
+    //     const username = this.state.username;
+    //     const password = this.state.password;
 
-                    </form>
+    //     if(signInValidator(username, password)) {
+    //         userService.login(username, password)
+    //         this.props.history.push('/');
+    //     }        
+    // }
 
-                </div>
-                <div className="gradient"></div>
+
+    return (
+        <div className="Login">
+            <div id="bg"></div>
+
+            <div id="wrapper">
+
+                <form name="login-form" className="login-form" onSubmit={handleSubmit}>
+
+                    <div className="header">
+                        <h1>Login Form</h1>
+                        <span>Fill out the form below to login.</span>
+                    </div>
+
+                    <div className="content">
+                        <input name="username" type="text" className="input username"
+                            placeholder="Username" value={username}
+                            onChange={updateName} />
+                        <div className="user-icon"></div>
+                        <input name="password" type="password" className="input password"
+                            placeholder="Password" value={password}
+                            onChange={updatePassword} />
+                        <div className="pass-icon"></div>
+                    </div>
+
+                    <div className="footer">
+                        <input type="submit" name="submit" value="Login" className="button" />
+                        <input type="submit" name="submit" value="Register" className="register" />
+                    </div>
+
+                </form>
+
             </div>
-        )
-    }
+            <div className="gradient"></div>
+        </div>
+    )
 }
 
 export default Login;

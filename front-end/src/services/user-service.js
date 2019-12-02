@@ -43,7 +43,7 @@ const userRequester = {
     axios.post(`${host}/user/logout`)
       .then((res) => {
         sessionManager.clear()
-        toast.success(`${res}`);
+        toast.success(`${res.data}`);
       })
   }
 }

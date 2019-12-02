@@ -10,41 +10,52 @@ import Dashboard from './components/Dashboard';
 import AddExpense from './components/NewExpense';
 import AddIncome from './components/Income';
 import ExpensePage from './components/ExpensePage';
-import { ToastContainer } from 'react-toastify';
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import { AuthProvider } from './components/UserContext';
 
 import './Home.css';
+// import sessionManager from './utils/session-manager';
 
 function Home() {
+  // const [state, setState] = useState(false);
+  // useEffect(()=>
+  // (setState(sessionManager.isLogged())
+  // ))
+  // // console.log(state);
+  
   return (
     <Router>
-    <div className="Home">
-      <Navigation />
-      <Switch>
-        <Route path="/" exact component={Features} />
-        <Route path="/register" exact component={Register} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/logout" exact component={Logout} />
-        <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/add-expense" exact component={AddExpense} />
-        <Route path="/add-income" exact component={AddIncome} />
-        <Route path="/expense-info" exact component={ExpensePage} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-      <Footer />
-    </div>
-    <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          hideProgressBar
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnVisibilityChange
-          draggable
-          pauseOnHover
-        />
+      <AuthProvider >
+        <div className="Home">
+          <Navigation />
+          <Switch>
+            <Route path="/" exact component={Features} />
+            <Route path="/register" exact component={Register} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/logout" exact component={Logout} />
+            <Route path="/dashboard" exact component={Dashboard} />
+            <Route path="/add-expense" exact component={AddExpense} />
+            <Route path="/add-income" exact component={AddIncome} />
+            <Route path="/expense-info" exact component={ExpensePage} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+          <Footer />
+        </div>
+      </AuthProvider>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable
+        pauseOnHover
+      />
     </Router>
   );
 }

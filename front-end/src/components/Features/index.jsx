@@ -3,6 +3,7 @@ import '../../variables.css';
 import './Features.css';
 
 function Features() {
+
     return (
         <div className="Features">
             <section className="sec1">

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useContext, Fragment, useEffect} from 'react';
 import {Link} from 'react-router-dom'
+import {AuthContext} from '../UserContext';
+import sessionManager from '../../utils/session-manager'
 import './Nav.css';
 
-function Navigation(){
+function Navigation() {
+    const [isLogged, setUserStatus] = useContext(AuthContext)
+
+    useEffect(()=>
+        (setUserStatus(sessionManager.isLogged())
+    ))
+
     return (
         <div className="Navigation">
             <div className="body">
@@ -14,6 +22,8 @@ function Navigation(){
                     <Link className="link" to="/">
                     <li className="active">Home</li>
                     </Link>
+                    {isLogged ? 
+                    <Fragment>
                     <Link className="link" to="/dashboard">
                     <li className="active">Dashboard</li>
                     </Link>
@@ -26,13 +36,18 @@ function Navigation(){
                     <Link className="link" to="/logout">
                     <li className="active">Logout</li>
                     </Link>
+                    </Fragment> 
+                    :
+                    <Fragment>
                     <Link className="link" to="/login">
                     <li className="active">Login</li>
                     </Link>
                     <Link className="link" to="/register">
                     <li className="active">Register</li>
                     </Link>
-                    
+
+                    </Fragment>    
+                }
                 </ul>
                 </nav>
             </div>     
