@@ -18,5 +18,14 @@ router.get('/getExpenses', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/expense-info/:id', (req, res, next) => {
+  const id = req.params.id;
+  Expense.findById(id)
+    .then((expense) => {
+      res.send(expense);
+    })
+    .catch(next);
+})
+
 
 module.exports = router;

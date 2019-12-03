@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import expenseService from '../../services/expense-service';
 import './style.css';
 
-function ExpensePage() {
+function ExpensePage(props) {
+
+  const [state, setState] = useState({});
+  const id = props.match.params.id;
+  useEffect(() => {
+    expenseService.getCurrentExpense(id)
+      .then((res)=>{
+        setState(res.data)
+        
+      })
+    }, [id]);
+    
   return (
+    
     <div className="expense-page">
 
       <div className="mobile-container">
@@ -19,15 +32,18 @@ function ExpensePage() {
         <div className="product-details-wrapper">
           <div className="product-details">
             <div className="overview product-description-section">
-              <h3 className="product-description-section-title">Amount: <span className="pricing">$15.00</span></h3>
-              <p>Date of purchase: 29-11-2019 </p>
-              <p>Merchant: Sushi mushi</p>
-              <p>Category: food </p>
+            <h3 className="product-description-section-title">Amount: <span className="pricing">{state.price}$</span></h3>
+              <p>Date of purchase: {state.date}</p>
+              <p>Merchant: {state.merchant}</p>
+              <p>Category: {state.category} </p>
 
             </div>
             <div className="overview product-description-section">
               <h3 className="product-description-section-title">Description:</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ab tempora tenetur quod nemo nobis. Animi, cum, sit quaerat quisquam ullam, reiciendis minus cumque dicta voluptatem porro hic quo veritatis.</p>
+              {state.description ? 
+              <p>{state.description}</p> : 
+              <p>...no description added yet!</p>
+              }
             </div>
           </div>
         </div>

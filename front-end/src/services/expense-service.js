@@ -7,6 +7,9 @@ const expenseRequester = {
     return axios.get(`${host}/expense/getExpenses`);
   },
 
+  getCurrentExpense: (id) => {
+    return axios.get(`${host}/expense/expense-info/${id}`);
+  }
   
 }
 

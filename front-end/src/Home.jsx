@@ -39,7 +39,7 @@ function Home() {
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/add-expense" exact component={AddExpense} />
             <Route path="/add-income" exact component={AddIncome} />
-            <Route path="/expense-info" exact component={ExpensePage} />
+            <Route path="/expense-info/:id" exact component={ExpensePage} />
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer />
