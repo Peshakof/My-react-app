@@ -9,6 +9,10 @@ const expenseRequester = {
 
   getCurrentExpense: (id) => {
     return axios.get(`${host}/expense/expense-info/${id}`);
+  },
+
+  removeCurrentExpense: (id) => {
+    return axios.delete(`${host}/expense/remove/${id}`);
   }
   
 }

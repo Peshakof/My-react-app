@@ -17,14 +17,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './components/UserContext';
 
 import './Home.css';
-// import sessionManager from './utils/session-manager';
 
 function Home() {
-  // const [state, setState] = useState(false);
-  // useEffect(()=>
-  // (setState(sessionManager.isLogged())
-  // ))
-  // // console.log(state);
   
   return (
     <Router>

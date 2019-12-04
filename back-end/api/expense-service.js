@@ -27,5 +27,13 @@ router.get('/expense-info/:id', (req, res, next) => {
     .catch(next);
 })
 
+router.delete('/remove/:id', (req, res, next) => {
+  const id = req.params.id;
+  Expense.findByIdAndRemove(id)
+    .then(() => {
+      res.send('Expense deleted successfully')
+    })
+    .catch(next);
+})
 
 module.exports = router;

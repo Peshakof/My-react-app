@@ -1,16 +1,34 @@
 import React, {useState, useEffect} from 'react';
 import expenseService from '../../services/expense-service';
+import { toast } from 'react-toastify';
 import './style.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ExpensePage(props) {
 
   const [state, setState] = useState({});
+  const [isClicked, setIsClicked] = useState(false);
   const id = props.match.params.id;
+
+  function removeExpense() {
+    expenseService.removeCurrentExpense(id)
+      .then((res)=>{
+        toast.success(res.data)
+        props.history.push('/dashboard')
+      })
+      .catch(err=>{
+        toast.error(err)
+      })
+  }
+
+  function showEditForm() {
+    setIsClicked(true);
+  }
+
   useEffect(() => {
     expenseService.getCurrentExpense(id)
       .then((res)=>{
         setState(res.data)
-        
       })
     }, [id]);
     
@@ -48,10 +66,11 @@ function ExpensePage(props) {
           </div>
         </div>
         <div className="expenseForm-footer">
-          <button className="save left">Edit <i className="fa fa-star"></i></button>
-          <button className="right" id="add-to-cart">Delete</button>
+          <button onClick={showEditForm} className="save left">Edit <i className="fa fa-star"></i></button>
+          <button onClick={removeExpense} className="right" id="remove">Delete</button>
         </div>
       </div>
+      {isClicked ? <div>Edit</div> : null}
     </div>
   )
 }
