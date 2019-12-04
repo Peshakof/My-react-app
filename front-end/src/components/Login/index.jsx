@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import signInValidator from '../../utils/loginFormValidator';
 import userService from '../../services/user-service';
-
+import { AuthContext } from '../UserContext';
+ 
 
 import './Login.css';
 
 function Login(props) {
+    const [isLogged, setUserStatus] = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,9 +23,11 @@ function Login(props) {
         e.preventDefault();
 
         if (signInValidator(username, password)) {
+            console.log(isLogged.toString())
             userService.login(username, password)
             props.history.push('/');
         }
+        setUserStatus(true)
     }
 
     // constructor(props) {

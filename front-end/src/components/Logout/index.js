@@ -1,13 +1,13 @@
-import React from 'react';
-// import {AuthContext} from '../UserContext';
+import React, {useContext} from 'react';
+import {AuthContext} from '../UserContext';
 import { Redirect } from 'react-router-dom';
 import userService from '../../services/user-service';
-// import sessionManager from '../../utils/session-manager';
 
 function Logout() {
-  // const [isLogged, setIsLogged] = useContext(AuthContext);
+  const [isLogged, setIsLogged] = useContext(AuthContext);
   userService.logout()
-  // setIsLogged(sessionManager.isLogged())
+  setIsLogged(false);
+  console.log(isLogged.toString())
   return(
     <Redirect to='/login' />
   )

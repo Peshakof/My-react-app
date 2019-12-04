@@ -1,15 +1,10 @@
-import React, {useContext, Fragment, useEffect} from 'react';
+import React, {useContext, Fragment} from 'react';
 import {Link} from 'react-router-dom'
 import {AuthContext} from '../UserContext';
-import sessionManager from '../../utils/session-manager'
 import './Nav.css';
 
 function Navigation() {
-    const [isLogged, setUserStatus] = useContext(AuthContext)
-
-    useEffect(()=>
-        (setUserStatus(sessionManager.isLogged())
-    ))
+    const [isLogged] = useContext(AuthContext)
 
     return (
         <div className="Navigation">

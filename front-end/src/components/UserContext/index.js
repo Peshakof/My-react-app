@@ -1,10 +1,10 @@
 import React, {useState, createContext} from 'react';
-import sessionManager from '../../utils/session-manager';
+// import sessionManager from '../../utils/session-manager';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = props => {
-  const [isLogged, setUserStatus] = useState( sessionManager.isLogged() );
+  const [isLogged, setUserStatus] = useState( false );
  
   return(
     <AuthContext.Provider value={[isLogged, setUserStatus]}>
