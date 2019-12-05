@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import signInValidator from '../../utils/loginFormValidator';
 import userService from '../../services/user-service';
 import { AuthContext } from '../UserContext';
- 
 
 import './Login.css';
 
@@ -23,43 +22,12 @@ function Login(props) {
         e.preventDefault();
 
         if (signInValidator(username, password)) {
-            console.log(isLogged.toString())
             userService.login(username, password)
+            setUserStatus(true)
+            console.log(isLogged)
             props.history.push('/');
         }
-        setUserStatus(true)
     }
-
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         username: '',
-    //         password: ''
-    //     }
-
-    //     this.handleChange = this.handleChange.bind(this);
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    // }
-
-    // handleChange(event) {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
-
-    // handleSubmit(event) {
-    //     event.preventDefault();
-
-    //     const username = this.state.username;
-    //     const password = this.state.password;
-
-    //     if(signInValidator(username, password)) {
-    //         userService.login(username, password)
-    //         this.props.history.push('/');
-    //     }        
-    // }
-
 
     return (
         <div className="Login">

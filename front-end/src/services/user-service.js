@@ -33,7 +33,7 @@ const userRequester = {
         sessionManager.save(token, user.username);
         toast.success('You successfully logged in!');
       })
-      .catch(err => {
+      .catch(() => {
         toast.error('Incorrect username or password!');
         return false;
       });

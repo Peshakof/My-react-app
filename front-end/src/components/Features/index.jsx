@@ -1,4 +1,7 @@
 import React from 'react';
+import Calendar from '../Calendar';
+import DonutChart from 'react-donut-chart';
+
 import '../../variables.css';
 import './Features.css';
 
@@ -7,11 +10,10 @@ function Features() {
     return (
         <div className="Features">
             <section className="sec1">
-
-            <header>
-                <h1>Personal finance application that makes money management easy</h1>
-            </header>
-
+                <header>
+                    <h1>Personal finance application that makes money management easy</h1>
+                </header>
+            </section>
             <section className="sec2">
                 <h2>Features:</h2>
                 <ul>
@@ -31,10 +33,21 @@ function Features() {
                         <p></p>
                     </li>
                 </ul>
+                <h3>Search by date</h3>
+                <Calendar className={'calendar'} />
+                <DonutChart outerRadius={0.55} innerRadius={0.40}
+                    data={[
+                        {
+                            label: 'Expenses',
+                            value: 537
+                        },
+                        {
+                            label: 'Income',
+                            value: 1357
+                        }
+                    ]} />
             </section>
-            </section>
-            
-        </div>    
+        </div>
     )
 }
 

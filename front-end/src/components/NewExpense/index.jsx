@@ -1,12 +1,11 @@
 import React from 'react';
-import axios from 'axios';
+import Calendar from '../Calendar';
 import expenseValidator from '../../utils/expenseValidator';
+import expenseService from '../../services/expense-service';
 import { toast } from 'react-toastify';
 
 import './Expense.css';
 import 'react-toastify/dist/ReactToastify.css';
-
-const host = 'http://localhost:8080/api';
 
 class AddExpense extends React.Component {
     constructor(props) {
@@ -42,18 +41,15 @@ class AddExpense extends React.Component {
         }
 
         if(expenseValidator(expense.merchant, expense.price, expense.date)) {
-
-            axios
-                .post(`${host}/expense/addExpense`, expense)
-                .then(res => {
+            expenseService.createExpense(expense)
+                .then(()=>{
                     toast.success('Added new expense!');
                     this.props.history.push('/dashboard');
-                }) 
+                })
                 .catch(err => {
                     toast.error(err);
-                });   
+                });  
         }
-
     }
 
     render() {
@@ -70,10 +66,12 @@ class AddExpense extends React.Component {
                         </p>
 
                         <p className="date">
-                            <input name="date" type="date" className="feedback-input" placeholder="Date" id="date" value={this.state.date} onChange={this.handleChange} />
+                            <Calendar className={'feedback-input'}/>
+                            {/* <input name="date" type="date" className="feedback-input" id="date" value={this.state.date} onChange={this.handleChange} /> */}
                         </p>
 
                         <select name="category" id="category" value={this.state.category} onChange={this.handleChange}>
+                            <option value="">Category</option>
                             <option value="Bills">Bills</option>
                             <option value="Rents">Rents</option>
                             <option value="Entertainment">Entertainment</option>

@@ -13,8 +13,12 @@ const expenseRequester = {
 
   removeCurrentExpense: (id) => {
     return axios.delete(`${host}/expense/remove/${id}`);
+  },
+
+  createExpense: (expense) => {
+    return axios.post(`${host}/expense/addExpense`, expense);
   }
-  
+
 }
 
 export default expenseRequester;

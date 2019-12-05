@@ -7,7 +7,7 @@ function Logout() {
   const [isLogged, setIsLogged] = useContext(AuthContext);
   userService.logout()
   setIsLogged(false);
-  console.log(isLogged.toString())
+  console.log(isLogged)
   return(
     <Redirect to='/login' />
   )
