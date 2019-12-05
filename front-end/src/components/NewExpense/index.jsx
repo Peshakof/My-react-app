@@ -41,6 +41,7 @@ class AddExpense extends React.Component {
         }
 
         if(expenseValidator(expense.merchant, expense.price, expense.date)) {
+            
             expenseService.createExpense(expense)
                 .then(()=>{
                     toast.success('Added new expense!');

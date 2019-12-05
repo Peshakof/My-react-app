@@ -2,11 +2,15 @@ import React, { useState, useContext } from 'react';
 import signInValidator from '../../utils/loginFormValidator';
 import userService from '../../services/user-service';
 import { AuthContext } from '../UserContext';
+import sessionManager from '../../utils/session-manager';
+import { toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import './Login.css';
 
 function Login(props) {
-    const [isLogged, setUserStatus] = useContext(AuthContext);
+    const [user, setUserStatus] = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -23,10 +27,19 @@ function Login(props) {
 
         if (signInValidator(username, password)) {
             userService.login(username, password)
-            setUserStatus(true)
-            console.log(isLogged)
-            props.history.push('/');
-        }
+                .then((res) => {
+                    const { token, user } = res.data;
+                    sessionManager.save(token, user.username);
+                    toast.success('You successfully logged in!');
+                    setUserStatus({isLogged: true, userId: user._id});
+                    props.history.push('/');
+                })
+                .catch(() => {
+                    toast.error('Incorrect username or password!');
+                    return false;
+                });
+            }
+            console.log(user)
     }
 
     return (

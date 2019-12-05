@@ -3,10 +3,10 @@ import React, {useState, createContext} from 'react';
 export const AuthContext = createContext();
 
 export const AuthProvider = props => {
-  const [isLogged, setUserStatus] = useState( false );
+  const [user, setUserStatus] = useState( {isLogged: false, userId: ''} );
  
   return(
-    <AuthContext.Provider value={[isLogged, setUserStatus]}>
+    <AuthContext.Provider value={[user, setUserStatus]}>
       {props.children}
     </AuthContext.Provider>  
   )

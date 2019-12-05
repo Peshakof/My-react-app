@@ -23,22 +23,13 @@ const userRequester = {
   },
 
   login: (username, password) => {
-   axios
+    return axios
       .post(`${host}/user/login`, {
         username,
         password
       })
-      .then((res) => {
-        const { token, user } = res.data;
-        sessionManager.save(token, user.username);
-        toast.success('You successfully logged in!');
-      })
-      .catch(() => {
-        toast.error('Incorrect username or password!');
-        return false;
-      });
   },
-  
+
   logout: () => {
     axios.post(`${host}/user/logout`)
       .then((res) => {
