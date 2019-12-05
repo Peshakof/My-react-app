@@ -2,8 +2,8 @@ const router = require('express').Router();
 const { Expense } = require('../models');
 
 router.post('/addExpense', (req, res, next) => {
-    const{merchant,price,date,category,text} = req.body;
-    Expense.create({merchant,price,date,category,text})
+    const{merchant,price,date,category,text,user} = req.body;
+    Expense.create({merchant,price,date,category,text,user})
       .then((expense) => {
         res.send(expense)
       })

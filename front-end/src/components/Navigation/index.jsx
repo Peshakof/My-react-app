@@ -1,10 +1,12 @@
 import React, {useContext, Fragment} from 'react';
 import {Link} from 'react-router-dom'
 import {AuthContext} from '../UserContext';
+import sessionManager from '../../utils/session-manager';
 import './Nav.css';
 
 function Navigation() {
-    const [isLogged] = useContext(AuthContext)
+    const [user] = useContext(AuthContext)
+    const username = sessionManager.getUsername();
 
     return (
         <div className="Navigation">
@@ -17,8 +19,9 @@ function Navigation() {
                     <Link className="link" to="/">
                     <li className="active">Home</li>
                     </Link>
-                    {isLogged ? 
+                    {user.isLogged ? 
                     <Fragment>
+                    <li className="active">hallo user: {username}</li>
                     <Link className="link" to="/dashboard">
                     <li className="active">Dashboard</li>
                     </Link>

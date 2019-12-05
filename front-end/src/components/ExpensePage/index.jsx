@@ -58,8 +58,8 @@ function ExpensePage(props) {
             </div>
             <div className="overview product-description-section">
               <h3 className="product-description-section-title">Description:</h3>
-              {state.description ? 
-              <p>{state.description}</p> : 
+              {state.text ? 
+              <p>{state.text}</p> : 
               <p>...no description added yet!</p>
               }
             </div>

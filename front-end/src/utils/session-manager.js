@@ -10,6 +10,9 @@ const sessionManager = {
 
   isLogged: () => {
     return sessionStorage.getItem('authtoken') !== null;
+  },
+  getUsername:() => {
+    return sessionStorage.getItem('username');
   }
 }
 
