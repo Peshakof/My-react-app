@@ -1,13 +1,16 @@
 const router = require('express').Router();
-const { Expense } = require('../models');
+const { Expense, User } = require('../models');
 
-router.post('/addExpense', (req, res, next) => {
+router.post('/addExpense', async(req, res, next) => {
     const{merchant,price,date,category,text,user} = req.body;
-    Expense.create({merchant,price,date,category,text,user})
-      .then((expense) => {
-        res.send(expense)
-      })
-      .catch(next);
+    try {
+      await Expense.create({merchant,price,date,category,text,user});
+      const newExpense = await Expense.findOne({user});
+      await User.updateOne({_id: user}, { $push: {expenses: newExpense._id}})  
+      res.send('Added new expense!');
+    } catch (error) {
+      next(error);
+    };
 });
 
 router.get('/getExpenses', (req, res, next) => {

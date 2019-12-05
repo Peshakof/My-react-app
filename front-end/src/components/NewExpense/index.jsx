@@ -54,8 +54,8 @@ function AddExpense(props) {
 
         if (expenseValidator(expense.merchant, expense.price, expense.date)) {
             expenseService.createExpense(expense)
-                .then(() => {
-                    toast.success('Added new expense!');
+                .then((res) => {
+                    toast.success(res.data);
                     props.history.push('/dashboard');
                 })
                 .catch(err => {
