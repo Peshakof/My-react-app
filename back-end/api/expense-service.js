@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Expense, User } = require('../models');
+const { Expense, User, Income } = require('../models');
 
 router.post('/addExpense', async(req, res, next) => {
     const{merchant,price,date,category,text,user} = req.body;
@@ -20,6 +20,16 @@ router.get('/getExpenses', (req, res, next) => {
     })
     .catch(next);
 });
+
+router.get('/getTotalExpensesAndIncome', async(req, res, next) => {
+  try {
+    const expensesTotal = await Expense.find().select('price');
+    const incomeTotal = await Income.find().select('price');
+    res.send({expensesTotal, incomeTotal})
+  } catch (error) {
+    next(error);
+  }; 
+})
 
 router.get('/expense-info/:id', (req, res, next) => {
   const id = req.params.id;

@@ -17,6 +17,10 @@ const expenseRequester = {
 
   createExpense: (expense) => {
     return axios.post(`${host}/expense/addExpense`, expense);
+  },
+
+  getTotalExpensesAndIncome: () => {
+    return axios.get((`${host}/expense/getTotalExpensesAndIncome`));
   }
 
 }
