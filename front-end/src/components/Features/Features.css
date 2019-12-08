@@ -1,13 +1,20 @@
-section {
-    width: 100%;
-    height: 100vh;
-    font-weight: 400;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+.features {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
 }
 
 section.sec1 {
-    padding-top: 20px;
-    background: url('https://www.windowscentral.com/sites/wpcentral.com/files/styles/xlarge/public/field/image/2018/10/microsoft-garage-spend-app.jpg');
-    background-size: cover;
+    flex-basis: 60%;
+    margin: 0 auto;
+    padding: 0 2.5em;
+    color: var(--color-darker);
 }
 
 section.sec1 h1 {
@@ -15,33 +22,96 @@ section.sec1 h1 {
     color: var(--color-primery);
     font-weight: 400;
     text-align: center;
-    padding-top: 3em;
+    padding-top: 2em;
+    text-shadow: 2px 2px 2px rgb(59, 58, 58);
 }
 
-section.sec2 {
-    padding: 100px;
-    box-sizing: border-box;
-    height: auto;
-}
-
-section.sec2 h2 {
-    font-size: 2em;
-    margin: 0px;
-    padding: 0px;
+section.sec1 h2 {
+    font-size: 1.7em;
+    font-weight: 400;
+    margin-top: 2em;
+    padding: 0.6em 0;
     color: var(--color-hover);
 }
 
-section.sec2 ul li {
+section.sec1 ul li {
     list-style: decimal;
-    line-height: 40px;
-    max-width: 50%;
+    line-height: 34px;
 }
 
-section.sec2 p {
+section.sec2 {
+    box-sizing: border-box;
+    height: auto;
+    flex-basis: 50%;
+    margin-top: 2em;
+}
+
+section.sec2 .features-donut {
+    /* width: 30em; */
+    font-size: 1.25em;
+    height: 20em;
+    padding-top: 1.5em;
+    background: url('https://www.windowscentral.com/sites/wpcentral.com/files/styles/xlarge/public/field/image/2018/10/microsoft-garage-spend-app.jpg');
+    background-size: cover;
+}
+
+
+div.features > ul li {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0 1.5em 1.5em;
+    background-color: var(--color-darker);
+}
+
+div.features > ul li:nth-child(1):hover {
+    box-shadow: 0px 0px 8px 2px red;
+}
+
+div.features > ul li:nth-child(2):hover {
+    box-shadow: 0px 0px 8px 2px green;
+}
+
+div.features > ul li span {
+    position: absolute;
+    top: 1em;
+    left: 5em;
+    border-bottom: greenyellow 2px solid;
+    width: 6em;
+}
+
+div.features .red {
+    border: 2px solid red;
+}
+
+div.features .green {
+    border: 2px solid greenyellow;
+}
+
+.addExpense {
+    color: red;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.addIncome {
+    color: greenyellow;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.addExpense, .addIncome {
+    width: 100%;
+    text-align: center;
+}
+
+section.sec1 p {
     font-size: 1.3em;
     margin: 0px;
-    padding: 0px;
-    color: var(--color-darker);
 }
 
 section.sec2 h3 {
@@ -49,9 +119,26 @@ section.sec2 h3 {
     margin-top: 2.5em;
 }
 
-.calendar {
-    font-size: 1.2rem;
+section.footer {
+    list-style: none;
     display: block;
-    padding: 0.5rem 1rem;
+    flex-basis: 50%;
+    padding: 2em;
+    margin-top: 2.5em;
+    border: var(--color-hover) 2px solid;
+    text-align: center;
     border-radius: 0.5em;
+}
+
+section.footer h3 {
+    font-size: 1.4em;
+    font-weight: 400;
+    
+}
+
+section.footer .link {
+    color: rgb(23, 140, 235);
+    text-shadow: 1px 1px 1px rgb(29, 28, 28);
+    text-decoration: none;
+    padding: 1em;
 }
