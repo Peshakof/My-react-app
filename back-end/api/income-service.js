@@ -13,4 +13,13 @@ router.post('/addIncome', async(req, res, next) => {
   };
 })
 
+router.get('/getAll/:id', (req, res, next) => {
+  const userId = req.params.id;
+  Income.find({user: userId})
+    .then((incomes) => {
+      res.send(incomes);
+    })
+    .catch(next);
+})
+
 module.exports = router;

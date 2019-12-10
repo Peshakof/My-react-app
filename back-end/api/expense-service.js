@@ -13,8 +13,9 @@ router.post('/addExpense', async(req, res, next) => {
     };
 });
 
-router.get('/getExpenses', (req, res, next) => {
-  Expense.find()
+router.get('/getExpenses/:id', (req, res, next) => {
+  const userId = req.params.id;
+  Expense.find({user: userId})
     .then((expenses) => {
       res.send(expenses);
     })

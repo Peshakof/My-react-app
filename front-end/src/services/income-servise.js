@@ -6,6 +6,10 @@ const incomeRequester = {
   createIncome: (income) => {
     return axios.post(`${host}/income/addIncome`, income);
   },
+
+  getAll: (userId) => {
+    return axios.get(`${host}/income/getAll/${userId}`);
+  }
 }
 
 export default incomeRequester;

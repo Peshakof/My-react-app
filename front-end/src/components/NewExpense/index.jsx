@@ -12,7 +12,7 @@ function AddExpense(props) {
   const [userId, setUserId] = useState('');
   const [merchant, setMerchant] = useState('');
   const [price, setPrice] = useState(0);
-  const [date, setDate] = useState('2019/11/01');
+  const [date] = useState('2019/11/01');
   const [category, setCategory] = useState('');
   const [text, setText] = useState('');
 
@@ -28,9 +28,9 @@ function AddExpense(props) {
     setPrice(e.target.value)
   }
 
-  const updateDate = (e) => {
-    setDate(e.target.value)
-  }
+  // const updateDate = (e) => {
+  //   setDate(e.target.value)
+  // }
 
   const updateCategory = (e) => {
     setCategory(e.target.value)
