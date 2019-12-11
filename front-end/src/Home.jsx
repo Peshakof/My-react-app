@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard';
 import AddExpense from './components/NewExpense';
 import AddIncome from './components/Income';
 import ExpensePage from './components/ExpensePage';
+import PrivateRoute from './components/ProtectedRoute/protectedRoute.jsx';
 
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -31,12 +32,12 @@ function Home() {
             <Route path="/register" exact component={Register} />
             <Route path="/login" exact component={Login} />
             <Route path="/logout" exact component={Logout} />
-            <Route path="/add-expense" exact component={AddExpense} />
-            <Route path="/add-income" exact component={AddIncome} />
+            <PrivateRoute path="/add-expense" exact component={AddExpense} />
+            <PrivateRoute path="/add-income" exact component={AddIncome} />
             <TransactionProvider>
-              <Route path="/expense-info/:id" exact component={ExpensePage} />
-              <Route path="/dashboard" exact component={Dashboard} />
-              <Route path="/income-info/:id" exact component={ExpensePage} />
+              <PrivateRoute path="/expense-info/:id" exact component={ExpensePage} />
+              <PrivateRoute path="/dashboard" exact component={Dashboard} />
+              <PrivateRoute path="/income-info/:id" exact component={ExpensePage} />
             </TransactionProvider>
             <Route path="*" component={NotFound} />
           </Switch>

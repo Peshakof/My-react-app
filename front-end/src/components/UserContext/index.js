@@ -1,4 +1,5 @@
 import React, {useState, createContext} from 'react';
+// import sessionManager from '../../utils/session-manager';
 
 export const AuthContext = createContext();
 
