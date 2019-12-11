@@ -11,6 +11,7 @@ import AddExpense from './components/NewExpense';
 import AddIncome from './components/Income';
 import ExpensePage from './components/ExpensePage';
 import PrivateRoute from './components/ProtectedRoute/protectedRoute.jsx';
+import UserProfile from './components/UserProfilePage';
 
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -32,6 +33,7 @@ function Home() {
             <Route path="/register" exact component={Register} />
             <Route path="/login" exact component={Login} />
             <Route path="/logout" exact component={Logout} />
+            <PrivateRoute path="/user-profile" exact component={UserProfile} />
             <PrivateRoute path="/add-expense" exact component={AddExpense} />
             <PrivateRoute path="/add-income" exact component={AddIncome} />
             <TransactionProvider>
@@ -46,7 +48,7 @@ function Home() {
       </AuthProvider>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={2500}
         hideProgressBar
         newestOnTop
         closeOnClick

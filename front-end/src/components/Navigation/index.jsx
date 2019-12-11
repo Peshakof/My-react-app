@@ -21,7 +21,9 @@ function Navigation() {
                     </Link>
                     {user.isLogged ? 
                     <Fragment>
+                    <Link className="link" to="/user-profile">
                     <li className="active">hallo user: {username}</li>
+                    </Link>    
                     <Link className="link" to="/dashboard">
                     <li className="active">Dashboard</li>
                     </Link>
