@@ -15,11 +15,12 @@ import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { AuthProvider } from './components/UserContext';
+import { TransactionProvider } from './components/TransactionsContext';
 
 import './Home.css';
 
 function Home() {
-  
+
   return (
     <Router>
       <AuthProvider >
@@ -30,10 +31,13 @@ function Home() {
             <Route path="/register" exact component={Register} />
             <Route path="/login" exact component={Login} />
             <Route path="/logout" exact component={Logout} />
-            <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/add-expense" exact component={AddExpense} />
             <Route path="/add-income" exact component={AddIncome} />
-            <Route path="/expense-info/:id" exact component={ExpensePage} />
+            <TransactionProvider>
+              <Route path="/expense-info/:id" exact component={ExpensePage} />
+              <Route path="/dashboard" exact component={Dashboard} />
+              <Route path="/income-info/:id" exact component={ExpensePage} />
+            </TransactionProvider>
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer />

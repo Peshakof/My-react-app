@@ -9,10 +9,10 @@
   
   .table-wrap{
     flex-basis: 40%;
-    margin: 50px 0;
+    margin-top: 50px;
     background-size: cover;
     height: auto;
-    padding: 3em 0;
+    padding-top: 1em;
 }
 
 h1{
@@ -23,10 +23,20 @@ h1{
     text-align: center;
     margin-bottom: 15px;
   }
+
+
   table{
     width:100%;
     background: linear-gradient(to right, #252c29, #527a7e);
   }
+
+  table tbody a {
+    text-decoration: none;
+  }
+
+  /* table tbody a:hover {
+    background-color: #fff;
+  } */
 
   table tr {
     display: flex;
@@ -40,11 +50,11 @@ h1{
   .tbl-content{
     height:400px;
     overflow-x:auto;
-    border: 1px solid rgba(255,255,255,0.3);
+    /* border: 1px solid rgba(255,255,255,0.3); */
   }
   .tbl-header,
   .tbl-content{
-    opacity: 0.7;
+    opacity: 0.75;
   }
 
   th{

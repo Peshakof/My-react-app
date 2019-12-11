@@ -22,4 +22,25 @@ router.get('/getAll/:id', (req, res, next) => {
     .catch(next);
 })
 
+router.get('/getCurrentIncome/:id', (req, res, next) => {
+  const id = req.params.id;
+  Income.findById(id)
+    .then((income)=>{
+      res.send(income);
+    })
+    .catch(next);
+})
+
+router.put('/remove/:id', async(req, res, next) => {
+  const id = req.params.id;
+  const {userId} = req.body;
+  try {
+    await Income.findByIdAndRemove(id)
+    await User.updateOne({_id: userId}, {$pull:{incomes: id}})
+    res.send('Income deleted successfully')
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router;

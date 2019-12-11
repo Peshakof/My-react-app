@@ -1,7 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+import {TransactionContext} from '../TransactionsContext';
 import {Link} from 'react-router-dom';
 
 const IncomesList = (props) => {
+  const [typeOfTransaction, setType] = useContext(TransactionContext);
+
+  function changeType() {
+    setType('income');
+  }
 
   const incomes = props.incomes;
   return (
@@ -10,7 +16,7 @@ const IncomesList = (props) => {
         incomes.map(income => {
           income.date = income.date.slice(0, 10);
           return (
-            <Link to={`/income-info/${income._id}`}>
+            <Link onClick={changeType} to={`/income-info/${income._id}`}>
             <tr key={income._id}>
               <td>{income.date}</td>
               <td>{income.category}</td>

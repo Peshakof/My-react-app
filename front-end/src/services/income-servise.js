@@ -9,6 +9,14 @@ const incomeRequester = {
 
   getAll: (userId) => {
     return axios.get(`${host}/income/getAll/${userId}`);
+  },
+
+  getCurrentIncome: (id) => {
+    return axios.get(`${host}/income/getCurrentIncome/${id}`);
+  },
+
+  removeCurrentIncome: (id, userId) => {
+    return axios.put(`${host}/income/remove/${id}`, {userId});
   }
 }
 

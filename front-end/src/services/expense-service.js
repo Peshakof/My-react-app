@@ -11,8 +11,8 @@ const expenseRequester = {
     return axios.get(`${host}/expense/expense-info/${id}`);
   },
 
-  removeCurrentExpense: (id) => {
-    return axios.delete(`${host}/expense/remove/${id}`);
+  removeCurrentExpense: (id, userId) => {
+    return axios.put(`${host}/expense/remove/${id}`, {userId});
   },
 
   createExpense: (expense) => {

@@ -41,13 +41,16 @@ router.get('/expense-info/:id', (req, res, next) => {
     .catch(next);
 })
 
-router.delete('/remove/:id', (req, res, next) => {
+router.put('/remove/:id', async(req, res, next) => {
   const id = req.params.id;
-  Expense.findByIdAndRemove(id)
-    .then(() => {
-      res.send('Expense deleted successfully')
-    })
-    .catch(next);
+  const {userId} = req.body;
+  try {
+    await Expense.findByIdAndRemove(id)
+    await User.updateOne({_id: userId}, {$pull:{expenses: id}})
+    res.send('Expense deleted successfully')
+  } catch (error) {
+    next(error)
+  }
 })
 
 module.exports = router;
