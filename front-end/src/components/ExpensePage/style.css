@@ -5,19 +5,30 @@
 }
 
 .expense-page {
-  max-width: 600px;
-  margin: 3.5em auto;
+  max-width: 100%;
+  margin: 3.5em 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 4em;
 }
 
 .mobile-container {
-  margin: 0 auto;
-  width: 460px;
+  /* margin: 0 auto; */
+  /* width: 460px; */
+  flex-basis: 35%;
   height: 567px;
   border-radius: 5px;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   box-shadow: 0px 10px 13px 2px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
+
+#form-div {
+  flex-basis: 30%;
+}
+
 .mobile-container .left {
   float: left;
 }

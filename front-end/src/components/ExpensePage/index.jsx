@@ -3,6 +3,8 @@ import { TransactionContext } from '../TransactionsContext';
 import { AuthContext } from '../UserContext';
 import expenseService from '../../services/expense-service';
 import incomeService from '../../services/income-servise';
+import ExpenseForm from '../NewExpenseForm';
+
 import { toast } from 'react-toastify';
 import './style.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -54,22 +56,23 @@ function ExpensePage(props) {
         .catch(err => {
           console.error(err)
         })
-  }, [id, typeOfTransaction]);
+  }, [id, typeOfTransaction, state]);
 
   return (
 
     <div className="expense-page">
 
-      <div className="mobile-container">
-        <div className="header">
-          <div className="nav">
-            <div className="back left"><i className="fa fa-long-arrow-left"></i></div>
-            <div className="cart right"><i className="fa fa-shopping-cart"></i></div>
-          </div>
-        </div>
-        {typeOfTransaction === 'expense' ?
 
-          <Fragment>
+      {typeOfTransaction === 'expense' ?
+
+        <Fragment>
+          <div className="mobile-container">
+            <div className="header">
+              <div className="nav">
+                <div className="back left"><i className="fa fa-long-arrow-left"></i></div>
+                <div className="cart right"><i className="fa fa-shopping-cart"></i></div>
+              </div>
+            </div>
             <div className="jumbo-tron">
               <h1 className="jumbo-tron-product-title">Expense overview</h1>
               <div className="image-close-up"></div><img id="product-image" src="https://www.journalofaccountancy.com/content/dam/jofa/issues/2016/nov/reimbursement-fraud.jpg" alt="Main Product" />
@@ -93,12 +96,20 @@ function ExpensePage(props) {
               </div>
             </div>
             <div className="expenseForm-footer">
-              <button className="save left">Edit <i className="fa fa-star"></i></button>
               <button onClick={removeExpense} className="right" id="remove">Delete</button>
             </div>
-          </Fragment> :
+          </div>
+          <ExpenseForm expense={state} id={id} />
+        </Fragment> :
 
-          <Fragment>
+        <Fragment>
+          <div className="mobile-container">
+            <div className="header">
+              <div className="nav">
+                <div className="back left"><i className="fa fa-long-arrow-left"></i></div>
+                <div className="cart right"><i className="fa fa-shopping-cart"></i></div>
+              </div>
+            </div>
             <div className="jumbo-tron">
               <h1 className="jumbo-tron-product-title">Income overview</h1>
               <div className="image-close-up"></div><img id="product-image" src="https://www.journalofaccountancy.com/content/dam/jofa/issues/2016/nov/reimbursement-fraud.jpg" alt="Main Product" />
@@ -120,12 +131,11 @@ function ExpensePage(props) {
               </div>
             </div>
             <div className="expenseForm-footer">
-              <button className="save left">Edit <i className="fa fa-star"></i></button>
               <button onClick={removeIncome} className="right" id="remove">Delete</button>
             </div>
-          </Fragment>
-        }
-      </div>
+          </div>
+        </Fragment>
+      }
     </div>
   )
 }

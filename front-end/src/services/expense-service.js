@@ -20,7 +20,11 @@ const expenseRequester = {
   },
 
   getTotalExpensesAndIncome: () => {
-    return axios.get((`${host}/expense/getTotalExpensesAndIncome`));
+    return axios.get(`${host}/expense/getTotalExpensesAndIncome`);
+  },
+
+  updateExpense: (id, expense) => {
+    return axios.put(`${host}/expense/update/${id}`, expense);
   }
 
 }

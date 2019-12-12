@@ -53,4 +53,14 @@ router.put('/remove/:id', async(req, res, next) => {
   }
 })
 
+router.put('/update/:id', (req, res, next) => {
+  const id = req.params.id;
+  const expense = req.body;
+  Expense.updateOne({_id: id}, expense)
+    .then(() => {
+      res.send('Expense updated.')
+    })
+    .catch(next);
+})
+
 module.exports = router;
