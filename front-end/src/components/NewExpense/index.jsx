@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Calendar from '../Calendar';
+import useInput from '../../hooks/useInputChange';
 import expenseValidator from '../../utils/expenseValidator';
 import expenseService from '../../services/expense-service';
 import { toast } from 'react-toastify';
@@ -10,79 +10,55 @@ import 'react-toastify/dist/ReactToastify.css';
 function AddExpense(props) {
   const [user] = useContext(AuthContext);
   const [userId, setUserId] = useState('');
-  const [merchant, setMerchant] = useState('');
-  const [price, setPrice] = useState(0);
-  const [date] = useState('2019/11/01');
-  const [category, setCategory] = useState('');
-  const [text, setText] = useState('');
+
+  const [merchant, bindMerchant, updateMerchant] = useInput('');
+  const [price, bindPrice, updatePrice] = useInput(0);
+  const [date, bindDate, updateDate] = useInput('');
+  const [category, bindCategory, updateCategory] = useInput('');
+  const [text, bindText, updateText] = useInput('');
 
   useEffect(() => {
     setUserId(user.userId)
   }, [user])
 
-  const updateMerchant = (e) => {
-    setMerchant(e.target.value)
-  }
-
-  const updatePrice = (e) => {
-    setPrice(e.target.value)
-  }
-
-  // const updateDate = (e) => {
-  //   setDate(e.target.value)
-  // }
-
-  const updateCategory = (e) => {
-    setCategory(e.target.value)
-  }
-
-  const updateText = (e) => {
-    setText(e.target.value)
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const expense = {
-      merchant,
-      price,
-      date,
-      category,
-      text,
-      user: userId
-    }
+    updateMerchant()
+    updatePrice()
+    updateDate()
+    updateCategory()
+    updateText()
 
-    if (expenseValidator(expense.merchant, expense.price, expense.date)) {
-      expenseService.createExpense(expense)
-        .then((res) => {
-          toast.success(res.data);
+    if (expenseValidator(merchant, price, date)) {
+      expenseService.createExpense({merchant, price, date, category, text, user: userId})
+        .then((response) => {
+          toast.success(response.data);
           props.history.push('/dashboard');
         })
-        .catch(err => {
+        .catch(err=>{
           toast.error(err);
-        });
+        })
     }
   }
-
 
   return (
     <div id="form-expense">
       <div id="form-div">
         <form className="form" id="form1" onSubmit={handleSubmit}>
           <p className="merchant">
-            <input name="merchant" type="text" className="feedback-input" placeholder="Merchant" id="merchant" value={merchant} onChange={updateMerchant} />
+            <input name="merchant" type="text" className="feedback-input" placeholder="Merchant" id="Merchant" {...bindMerchant}/>
           </p>
 
           <p className="price">
-            <input name="price" type="number" className="feedback-input" id="price" placeholder="Price" value={price} onChange={updatePrice} />
+            <input name="price" type="number" className="feedback-input" id="price" placeholder="Price" {...bindPrice} />
           </p>
 
           <p className="date">
-            <Calendar className={'feedback-input'} />
-            {/* <input name="date" type="date" className="feedback-input" id="date" value={this.state.date} onChange={this.handleChange} /> */}
+            <input name="date" type="date" className="feedback-input" id="date" {...bindDate}/>
           </p>
 
-          <select name="category" id="category" value={category} onChange={updateCategory}>
+          <select name="category" id="category" {...bindCategory}>
             <option value="">Category</option>
             <option value="Bills">Bills</option>
             <option value="Rents">Rents</option>
@@ -97,7 +73,7 @@ function AddExpense(props) {
           </select>
 
           <p className="text">
-            <textarea name="text" className="feedback-input" id="comment" placeholder="Comment" value={text} onChange={updateText}></textarea>
+            <textarea name="text" className="feedback-input" id="comment" placeholder="Comment" {...bindText}></textarea>
           </p>
 
           <div className="submit">
@@ -108,7 +84,6 @@ function AddExpense(props) {
       </div>
     </div>
   )
-
 }
 
 export default AddExpense;

@@ -1,50 +1,30 @@
-import React, {useState} from 'react';
+import React from 'react';
 import expenseValidator from '../../utils/expenseValidator';
 import expenseService from '../../services/expense-service';
+import useInput from '../../hooks/useInputChange';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function ExpenseForm(props) {
-  console.log(props)
   const id = props.id;
-  const [merchant, setMerchant] = useState('');
-  const [price, setPrice] = useState(0);
-  const [date, setDate] = useState('');
-  const [category, setCategory] = useState('');
-  const [text, setText] = useState('');
-  const updateMerchant = (e) => {
-    setMerchant(e.target.value)
-  }
 
-  const updatePrice = (e) => {
-    setPrice(e.target.value)
-  }
-
-  const updateDate = (e) => {
-    setDate(e.target.value)
-  }
-
-  const updateCategory = (e) => {
-    setCategory(e.target.value)
-  }
-
-  const updateText = (e) => {
-    setText(e.target.value)
-  }
+  const [merchant, bindMerchant, updateMerchant] = useInput('');
+  const [price, bindPrice, updatePrice] = useInput(0);
+  const [date, bindDate, updateDate] = useInput('');
+  const [category, bindCategory, updateCategory] = useInput('');
+  const [text, bindText, updateText] = useInput('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const expense = {
-      merchant,
-      price,
-      date,
-      category,
-      text,
-    }
+    updateMerchant()
+    updatePrice()
+    updateDate()
+    updateCategory()
+    updateText()
 
-    if (expenseValidator(expense.merchant, expense.price, expense.date)) {
-      expenseService.updateExpense(id, expense)
+    if (expenseValidator(merchant, price, date)) {
+      expenseService.updateExpense(id, {merchant, price, date, category, text})
         .then((response) => {
           toast.success(response.data);
         })
@@ -58,18 +38,18 @@ function ExpenseForm(props) {
     <div id="form-div">
       <form className="form" id="form1" onSubmit={handleSubmit}>
         <p className="merchant">
-          <input name="merchant" type="text" className="feedback-input" placeholder={props.expense.merchant} id="merchant" value={merchant} onChange={updateMerchant} />
+          <input name="merchant" type="text" className="feedback-input" placeholder={props.expense.merchant} id="merchant" {...bindMerchant} />
         </p>
 
         <p className="price">
-          <input name="price" type="number" className="feedback-input" id="price" placeholder={props.expense.price} value={price} onChange={updatePrice}/>
+          <input name="price" type="number" className="feedback-input" id="price" placeholder={props.expense.price} {...bindPrice}/>
         </p>
 
         <p className="date">
-          <input name="date" type="date" className="feedback-input" id="date" value={date} onChange={updateDate}/>
+          <input name="date" type="date" className="feedback-input" id="date" {...bindDate}/>
         </p>
 
-        <select name="category" id="category" onChange={updateCategory}>
+        <select name="category" id="category" {...bindCategory}>
           <option value="">{props.expense.category}</option>
           <option value="Bills">Bills</option>
           <option value="Rents">Rents</option>
@@ -84,7 +64,7 @@ function ExpenseForm(props) {
         </select>
 
         <p className="text">
-          <textarea name="text" className="feedback-input" id="comment" placeholder='Description' value={text} onChange={updateText}>
+          <textarea name="text" className="feedback-input" id="comment" placeholder='Description' {...bindText}>
             {props.expense.text}
           </textarea>
         </p>
