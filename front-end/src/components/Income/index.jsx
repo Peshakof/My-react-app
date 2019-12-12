@@ -1,51 +1,29 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
+import useInput from '../../hooks/useInputChange';
 import { AuthContext } from '../UserContext';
 import { toast } from 'react-toastify';
 import incomeValidator from '../../utils/IncomeValidator';
 import incomeService from '../../services/income-servise';
-import './AddIncome.css';
+import './style.css';
 
 function AddIncome(props) {
   const [user] = useContext(AuthContext);
-  const [userId, setUserId] = useState('');
-  const [price, setPrice] = useState(0);
-  const [date, setDate] = useState('2019/11/01');
-  const [category, setCategory] = useState('');
-  const [text, setText] = useState('');
 
-  useEffect(() => {
-    setUserId(user.userId)
-  }, [user])
-
-  const updatePrice = (e) => {
-    setPrice(e.target.value)
-  }
-
-  const updateDate = (e) => {
-    setDate(e.target.value)
-  }
-
-  const updateCategory = (e) => {
-    setCategory(e.target.value)
-  }
-
-  const updateText = (e) => {
-    setText(e.target.value)
-  }
+  const [price, bindPrice, updatePrice] = useInput(0);
+  const [date, bindDate, updateDate] = useInput('');
+  const [category, bindCategory, updateCategory] = useInput('');
+  const [text, bindText, updateText] = useInput('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const income = {
-      price,
-      date,
-      category,
-      text,
-      user: userId
-    }
+    updatePrice()
+    updateDate()
+    updateCategory()
+    updateText()
 
-    if (incomeValidator(income.category, income.price, income.date)) {
-      incomeService.createIncome(income)
+    if (incomeValidator(price, date, category)) {
+      incomeService.createIncome({price, date, category, text, user: user.userId})
         .then((res) => {
           toast.success(res.data);
           props.history.push('/dashboard');
@@ -62,12 +40,12 @@ function AddIncome(props) {
         <form class="form" id="form1" onSubmit={handleSubmit}>
 
           <p class="price">
-            <input name="price" type="number" class="feedback-input" id="price" placeholder="Price" onChange={updatePrice} />
+            <input name="price" type="number" class="feedback-input" id="price" placeholder="Price" {...bindPrice} />
           </p>
 
-          <p><input type="date" class="feedback-input" placeholder="Date" id="date" onChange={updateDate} /></p>
+          <p><input type="date" class="feedback-input" placeholder="Date" id="date" {...bindDate}/></p>
 
-          <select name="category" id="category" onChange={updateCategory}>
+          <select name="category" id="category" {...bindCategory}>
             <option value="">Category</option>
             <option value="Deposit">Deposit</option>
             <option value="Salary">Salary</option>
@@ -75,7 +53,7 @@ function AddIncome(props) {
           </select>
 
           <p class="text">
-            <textarea name="text" class="feedback-input" id="comment" placeholder="Comment" onChange={updateText}></textarea>
+            <textarea name="text" class="feedback-input" id="comment" placeholder="Comment" {...bindText}></textarea>
           </p>
 
           <div class="submit">
