@@ -4,6 +4,7 @@ import { AuthContext } from '../UserContext';
 import expenseService from '../../services/expense-service';
 import incomeService from '../../services/income-servise';
 import ExpenseForm from '../NewExpenseForm';
+import EditIncomeForm from '../EditIncomeForm';
 
 import { toast } from 'react-toastify';
 import './style.css';
@@ -14,7 +15,6 @@ function ExpensePage(props) {
   const [typeOfTransaction] = useContext(TransactionContext);
   const [user] = useContext(AuthContext);
   const [state, setState] = useState({});
-  // const [isClicked, setIsClicked] = useState(false);
   const id = props.match.params.id;
 
   function removeExpense() {
@@ -40,15 +40,16 @@ function ExpensePage(props) {
   }
 
   useEffect(() => {
-    typeOfTransaction === 'expense' ?
+    if (typeOfTransaction === 'expense') {
       expenseService.getCurrentExpense(id)
         .then((res) => {
           setState(res.data)
         })
         .catch(err => {
           console.error(err)
-        }) :
-
+        })
+    }
+    else if (typeOfTransaction === 'income') {
       incomeService.getCurrentIncome(id)
         .then((res) => {
           setState(res.data)
@@ -56,13 +57,12 @@ function ExpensePage(props) {
         .catch(err => {
           console.error(err)
         })
-  }, [id, typeOfTransaction, state]);
+    }
+  }, [id, state]);
 
   return (
 
     <div className="expense-page">
-
-
       {typeOfTransaction === 'expense' ?
 
         <Fragment>
@@ -134,6 +134,7 @@ function ExpensePage(props) {
               <button onClick={removeIncome} className="right" id="remove">Delete</button>
             </div>
           </div>
+          <EditIncomeForm income={state} id={id} />
         </Fragment>
       }
     </div>

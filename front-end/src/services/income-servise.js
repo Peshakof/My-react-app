@@ -17,6 +17,10 @@ const incomeRequester = {
 
   removeCurrentIncome: (id, userId) => {
     return axios.put(`${host}/income/remove/${id}`, {userId});
+  },
+
+  updateIncome: (id, income) => {
+    return axios.put(`${host}/income/update/${id}`, income);
   }
 }
 

@@ -9,7 +9,7 @@ import NotFound from './components/NotFound';
 import Dashboard from './components/Dashboard';
 import AddExpense from './components/NewExpense';
 import AddIncome from './components/Income';
-import ExpensePage from './components/ExpensePage';
+import InfoPage from './components/InfoPage';
 import PrivateRoute from './components/ProtectedRoute/protectedRoute.jsx';
 import UserProfile from './components/UserProfilePage';
 
@@ -37,9 +37,9 @@ function Home() {
             <PrivateRoute path="/add-expense" exact component={AddExpense} />
             <PrivateRoute path="/add-income" exact component={AddIncome} />
             <TransactionProvider>
-              <PrivateRoute path="/expense-info/:id" exact component={ExpensePage} />
+              <PrivateRoute path="/expense-info/:id" exact component={InfoPage} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
-              <PrivateRoute path="/income-info/:id" exact component={ExpensePage} />
+              <PrivateRoute path="/income-info/:id" exact component={InfoPage} />
             </TransactionProvider>
             <Route path="*" component={NotFound} />
           </Switch>
