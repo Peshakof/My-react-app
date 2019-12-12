@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import expenseService from '../../services/expense-service';
 import incomeService from '../../services/income-servise';
+import calculateTotalAmount from '../Features/expense-helper';
 import { AuthContext } from '../Contexts/UserContext';
 import sessionManager from '../../utils/session-manager';
 
@@ -12,6 +13,8 @@ function UserProfile() {
   const [expensesCount, setExpensesCount] = useState(0);
   const [incomesCount, setIncomesCount] = useState(0);
   const [balance, setBalance] = useState(0);
+  const [expensesTotal, setExpensesTotal] = useState(0);
+  const [incomesTotal, setIncomesTotal] = useState(0);
   const [user] = useContext(AuthContext);
   const username = sessionManager.getUsername();
 
@@ -23,7 +26,9 @@ function UserProfile() {
     .then(([expenses, incomes]) => {
       setExpensesCount(expenses.data.length)
       setIncomesCount(incomes.data.length)
-      setBalance(incomesCount - expensesCount)
+      setExpensesTotal(calculateTotalAmount(expenses.data))
+      setIncomesTotal(calculateTotalAmount(incomes.data))
+      setBalance(incomesTotal - expensesTotal)
     })
     .catch(err=>{
       console.error(err);
@@ -40,12 +45,12 @@ function UserProfile() {
         <ul className="data">
           <li>
             You have: 
-            <span> {expensesCount}</span>
+            <span> {expensesCount} </span>
             expenses in total.
           </li>
           <li>
             You have:
-            <span> {incomesCount}</span>
+            <span> {incomesCount} </span>
             incomes in total.
           </li>
           <li>
