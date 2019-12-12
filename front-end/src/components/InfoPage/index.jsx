@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, Fragment } from 'react';
-import { TransactionContext } from '../TransactionsContext';
-import { AuthContext } from '../UserContext';
+import { TransactionContext } from '../Contexts/TransactionsContext';
+import { AuthContext } from '../Contexts/UserContext';
 import expenseService from '../../services/expense-service';
 import incomeService from '../../services/income-servise';
 import ExpenseForm from '../NewExpenseForm';

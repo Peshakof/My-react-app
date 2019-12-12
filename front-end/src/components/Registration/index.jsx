@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import userService from '../../services/user-service'
 import registerValidator from '../../utils/registerValidation';
-
-import './Register.css';
-
+import './style.css';
 
 class Register extends Component {
 

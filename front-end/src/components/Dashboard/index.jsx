@@ -5,10 +5,9 @@ import ExpenseDonutChart from '../Donut-charts/ExpenseDonutChart';
 import IncomeDonutChart from '../Donut-charts/IncomeDonutChart';
 import expenseService from '../../services/expense-service';
 import incomeService from '../../services/income-servise';
-import { AuthContext } from '../UserContext';
+import { AuthContext } from '../Contexts/UserContext';
 
-import './Dashboard.css';
-
+import './style.css';
 
 class Dashboard extends Component {
 

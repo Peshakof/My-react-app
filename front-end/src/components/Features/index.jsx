@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-// import Calendar from '../Calendar';
 import DonutChart from 'react-donut-chart';
 import expenseService from '../../services/expense-service';
 import getTotalAmount from './expense-helper';
-import { AuthContext } from '../UserContext';
+import { AuthContext } from '../Contexts/UserContext';
 
 import '../../variables.css';
-import './Features.css';
+import './style.css';
 
 function Features() {
   const [totalAmountOfExp, setTotalAmountOfExp] = useState(0);

@@ -3,8 +3,8 @@ import useInput from '../../hooks/useInputChange';
 import expenseValidator from '../../utils/expenseValidator';
 import expenseService from '../../services/expense-service';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../UserContext';
-import './Expense.css';
+import { AuthContext } from '../Contexts/UserContext';
+import './style.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 function AddExpense(props) {

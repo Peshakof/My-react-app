@@ -1,8 +1,8 @@
 import React, {useContext, Fragment} from 'react';
 import {Link} from 'react-router-dom'
-import {AuthContext} from '../UserContext';
+import {AuthContext} from '../Contexts/UserContext';
 import sessionManager from '../../utils/session-manager';
-import './Nav.css';
+import './style.css';
 
 function Navigation() {
     const [user] = useContext(AuthContext)

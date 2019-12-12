@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import expenseService from '../../services/expense-service';
 import incomeService from '../../services/income-servise';
-import { AuthContext } from '../UserContext';
+import { AuthContext } from '../Contexts/UserContext';
 import sessionManager from '../../utils/session-manager';
 
 import './style.css';

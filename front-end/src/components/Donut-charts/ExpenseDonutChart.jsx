@@ -2,7 +2,7 @@ import React from 'react';
 import DonutChart from 'react-donut-chart';
 import getTotalAmount from './getTotalAmount'
 
-import './Donut.css';
+import './style.css';
 
 function ExpenseDonutChart(props) {
 

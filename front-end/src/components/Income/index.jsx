@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import useInput from '../../hooks/useInputChange';
-import { AuthContext } from '../UserContext';
+import { AuthContext } from '../Contexts/UserContext';
 import { toast } from 'react-toastify';
 import incomeValidator from '../../utils/IncomeValidator';
 import incomeService from '../../services/income-servise';

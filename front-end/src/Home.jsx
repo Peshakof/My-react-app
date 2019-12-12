@@ -16,8 +16,8 @@ import UserProfile from './components/UserProfilePage';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { AuthProvider } from './components/UserContext';
-import { TransactionProvider } from './components/TransactionsContext';
+import { AuthProvider } from './components/Contexts/UserContext';
+import { TransactionProvider } from './components/Contexts/TransactionsContext';
 
 import './Home.css';
 

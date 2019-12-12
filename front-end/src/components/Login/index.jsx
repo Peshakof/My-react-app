@@ -1,13 +1,12 @@
 import React, { useState, useContext } from 'react';
 import signInValidator from '../../utils/loginFormValidator';
 import userService from '../../services/user-service';
-import { AuthContext } from '../UserContext';
+import { AuthContext } from '../Contexts/UserContext';
 import sessionManager from '../../utils/session-manager';
 import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-
-import './Login.css';
+import './style.css';
 
 function Login(props) {
     const [user, setUserStatus] = useContext(AuthContext);
