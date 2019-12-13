@@ -16,8 +16,8 @@ const IncomesList = (props) => {
         incomes.map(income => {
           income.date = income.date.slice(0, 10);
           return (
-            <Link onClick={changeType} to={`/income-info/${income._id}`}>
-            <tr key={income._id}>
+            <Link key={income._id} onClick={changeType} to={`/income-info/${income._id}`}>
+            <tr >
               <td>{income.date}</td>
               <td>{income.category}</td>
               <td>{income.price}</td>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Calendar = ({className}) => {
+const Calendar = ({className, name}) => {
   return(
-    <input className={className} id="date" type="date"></input>
+    <input className={className} name={name} type="date"></input>
   )
 }
 

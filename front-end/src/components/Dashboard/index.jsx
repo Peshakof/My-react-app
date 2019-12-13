@@ -6,6 +6,8 @@ import IncomeDonutChart from '../Donut-charts/IncomeDonutChart';
 import expenseService from '../../services/expense-service';
 import incomeService from '../../services/income-servise';
 import { AuthContext } from '../Contexts/UserContext';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './style.css';
 
@@ -17,8 +19,16 @@ class Dashboard extends Component {
 
     this.state = {
       expenses: [],
-      incomes: []
+      incomes: [],
+      startDate: '',
+      endDate: '',
+      startDateIncome: '',
+      endDateIncome: ''
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmitExpense = this.handleSubmitExpense.bind(this);
+    this.handleSubmitIncome = this.handleSubmitIncome.bind(this);
   }
 
   componentDidMount() {
@@ -34,10 +44,82 @@ class Dashboard extends Component {
       })
   }
 
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleChangeIncome(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleSubmitExpense(e) {
+    e.preventDefault();
+    const startDate = this.state.startDate;
+    const endDate = this.state.endDate;
+    expenseService.getAll(this.context[0].userId)
+      .then((res)=>{
+        const searchedExpenses = res.data.filter((e)=>{
+          return e.date >= startDate && e.date <= endDate;
+        })
+
+        if(endDate < startDate){
+          toast.error('Second date must be after the first date');
+          return;
+        }
+
+        // if(!res.length){
+        //   toast.error('There is no expenses in this period.');
+        //   return;
+        // }
+        this.setState({expenses: searchedExpenses});
+        return;
+      })
+      .catch(err=>{
+        console.error(err);
+      });
+  }
+
+  handleSubmitIncome(e) {
+    e.preventDefault();
+    const start = this.state.startDateIncome;
+    const end = this.state.endDateIncome;
+    incomeService.getAll(this.context[0].userId)
+      .then((res)=>{
+        const searchedIncomes = res.data.filter((e)=>{
+          return e.date >= start && e.date <= end;
+        })
+
+        if(end < start){
+          toast.error('Second date must be after the first date');
+          return;
+        }
+
+        // if(!res.length){
+        //   toast.error('There is no incomes in this period.');
+        //   return;
+        // }
+        this.setState({incomes: searchedIncomes});
+      })
+      .catch(err=>{
+        console.error(err);
+      });
+  }
+
   render() {
 
     return (
-      <div className="Dashboard">
+      <div className="Dashboard" onSubmit={this.handleSubmitExpense}>
+        <form className="calendar-wrap">
+          <label htmlFor="startDate">from: </label>
+          <input type="date" name="startDate" className="calendar" value={this.state.startDate} onChange={this.handleChange}/>
+          <label htmlFor="endDate">to: </label>
+          <input type="date" name="endDate" id="endDate" className="calendar" value={this.state.endDate} onChange={this.handleChange}/>
+          <input type="submit" value="search expenses" className="search" />
+        </form>
         <section className="table-wrap">
           <h1>Expenses history</h1>
           <div className="tbl-header">
@@ -62,6 +144,13 @@ class Dashboard extends Component {
         </section>
         <ExpenseDonutChart expenses={this.state.expenses} />
 
+        <form className="calendar-wrap" onSubmit={this.handleSubmitIncome}>
+          <label htmlFor="startDate">from: </label>
+          <input type="date" name="startDateIncome" className="calendar" value={this.state.startDateIncome} onChange={this.handleChange}/>
+          <label htmlFor="endDate">to: </label>
+          <input type="date" name="endDateIncome" id="endDate" className="calendar" value={this.state.endDateIncome} onChange={this.handleChange}/>
+          <input type="submit" value="search incomes" className="search" />
+        </form>
         <section className="table-wrap">
           <h1>Incomes history</h1>
           <div className="tbl-header">

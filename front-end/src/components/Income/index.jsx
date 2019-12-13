@@ -37,13 +37,13 @@ function AddIncome(props) {
   return (
     <div id="form-income">
       <div id="form-div">
-        <form class="form" id="form1" onSubmit={handleSubmit}>
+        <form className="form" id="form1" onSubmit={handleSubmit}>
 
-          <p class="price">
-            <input name="price" type="number" class="feedback-input" id="price" placeholder="Price" {...bindPrice} />
+          <p className="price">
+            <input name="price" type="number" className="feedback-input" id="price" placeholder="Price" {...bindPrice} />
           </p>
 
-          <p><input type="date" class="feedback-input" placeholder="Date" id="date" {...bindDate}/></p>
+          <p><input type="date" className="feedback-input" placeholder="Date" id="date" {...bindDate}/></p>
 
           <select name="category" id="category" {...bindCategory}>
             <option value="">Category</option>
@@ -52,13 +52,13 @@ function AddIncome(props) {
             <option value="Savings">Savings</option>
           </select>
 
-          <p class="text">
-            <textarea name="text" class="feedback-input" id="comment" placeholder="Comment" {...bindText}></textarea>
+          <p className="text">
+            <textarea name="text" className="feedback-input" id="comment" placeholder="Comment" {...bindText}></textarea>
           </p>
 
-          <div class="submit">
+          <div className="submit">
             <input type="submit" value="Add income" id="button-blue" />
-            <div class="ease"></div>
+            <div className="ease"></div>
           </div>
         </form>
       </div>

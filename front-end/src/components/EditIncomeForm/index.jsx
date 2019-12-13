@@ -2,18 +2,17 @@ import React from 'react';
 import incomeValidator from '../../utils/IncomeValidator';
 import incomeService from '../../services/income-servise';
 import useInput from '../../hooks/useInputChange';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function EditIncomeForm(props) {
-  console.log(props)
   const id = props.id
   const [price, bindPrice, updatePrice] = useInput(0);
   const [date, bindDate, updateDate] = useInput('');
   const [category, bindCategory, updateCategory] = useInput('');
   const [text, bindText, updateText] = useInput('');
 
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,12 +21,12 @@ function EditIncomeForm(props) {
     updateCategory()
     updateText()
 
-    if (incomeValidator( price, date, category)) {
-      incomeService.updateIncome(id, { price, date, category, text})
+    if (incomeValidator(price, date, category)) {
+      incomeService.updateIncome(id, { price, date, category, text })
         .then((response) => {
           toast.success(response.data);
         })
-        .catch(err=>{
+        .catch(err => {
           toast.error(err);
         })
     }
@@ -51,7 +50,7 @@ function EditIncomeForm(props) {
         </select>
 
         <p class="text">
-  <textarea name="text" class="feedback-input" id="comment" placeholder="Comment" {...bindText}>{props.income.text}</textarea>
+          <textarea name="text" class="feedback-input" id="comment" placeholder="Comment" {...bindText}>{props.income.text}</textarea>
         </p>
 
         <div class="submit">

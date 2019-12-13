@@ -1,9 +1,9 @@
-import React, { Fragment, useContext} from 'react';
-import {TransactionContext} from '../Contexts/TransactionsContext';
-import {Link} from 'react-router-dom';
+import React, { Fragment, useContext } from 'react';
+import { TransactionContext } from '../Contexts/TransactionsContext';
+import { Link } from 'react-router-dom';
 
 const ExpenseList = (props) => {
-  const[typeOfTransaction, setType] = useContext(TransactionContext);
+  const [typeOfTransaction, setType] = useContext(TransactionContext);
 
   function changeType() {
     setType('expense');
@@ -16,13 +16,13 @@ const ExpenseList = (props) => {
         expenses.map(expense => {
           expense.date = expense.date.slice(0, 10);
           return (
-            <Link onClick={changeType} to={`/expense-info/${expense._id}`}>
-            <tr key={expense._id}>
-              <td>{expense.date}</td>
-              <td>{expense.category}</td>
-              <td>{expense.merchant}</td>
-              <td>{expense.price}</td>
-            </tr>
+            <Link key={expense._id} onClick={changeType} to={`/expense-info/${expense._id}`}>
+              <tr>
+                <td>{expense.date}</td>
+                <td>{expense.category}</td>
+                <td>{expense.merchant}</td>
+                <td>{expense.price}</td>
+              </tr>
             </Link>
           )
         })
