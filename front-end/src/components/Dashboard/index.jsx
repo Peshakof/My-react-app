@@ -71,10 +71,10 @@ class Dashboard extends Component {
           return;
         }
 
-        // if(!res.length){
-        //   toast.error('There is no expenses in this period.');
-        //   return;
-        // }
+        if(!searchedExpenses.length){
+          toast.error('There is no expenses in this period.');
+          return;
+        }
         this.setState({expenses: searchedExpenses});
         return;
       })
@@ -88,8 +88,8 @@ class Dashboard extends Component {
     const start = this.state.startDateIncome;
     const end = this.state.endDateIncome;
     incomeService.getAll(this.context[0].userId)
-      .then((res)=>{
-        const searchedIncomes = res.data.filter((e)=>{
+      .then((response)=>{
+        const searchedIncomes = response.data.filter((e)=>{
           return e.date >= start && e.date <= end;
         })
 
@@ -98,10 +98,10 @@ class Dashboard extends Component {
           return;
         }
 
-        // if(!res.length){
-        //   toast.error('There is no incomes in this period.');
-        //   return;
-        // }
+        if(!searchedIncomes.length){
+          toast.error('There is no incomes in this period.');
+          return;
+        }
         this.setState({incomes: searchedIncomes});
       })
       .catch(err=>{
@@ -112,8 +112,8 @@ class Dashboard extends Component {
   render() {
 
     return (
-      <div className="Dashboard" onSubmit={this.handleSubmitExpense}>
-        <form className="calendar-wrap">
+      <div className="Dashboard" >
+        <form className="calendar-wrap" onSubmit={this.handleSubmitExpense}>
           <label htmlFor="startDate">from: </label>
           <input type="date" name="startDate" className="calendar" value={this.state.startDate} onChange={this.handleChange}/>
           <label htmlFor="endDate">to: </label>
