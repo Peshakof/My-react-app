@@ -26,7 +26,7 @@ function Home() {
   return (
     <Router>
       <AuthProvider >
-        <div className="Home">
+        {/* <div className="Home"> */}
           <Navigation />
           <Switch>
             <Route path="/" exact component={Features} />
@@ -44,7 +44,7 @@ function Home() {
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer />
-        </div>
+        {/* </div> */}
       </AuthProvider>
       <ToastContainer
         position="top-center"
