@@ -58,7 +58,7 @@ function ExpensePage(props) {
           console.error(err)
         })
     }
-  }, [id, state, typeOfTransaction]);
+  }, [id, state]);
 
   return (
 
