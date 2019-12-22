@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-
-
 #form-expense {
 	margin: 0 auto;
 	display: flex;
@@ -27,7 +24,6 @@
 .feedback-input,
 select {
 	color: #3c3c3c;
-	font-family: 'Roboto', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 18px;
 	border-radius: 0.3em;
@@ -108,7 +104,6 @@ select:hover {
 }
 
 #button-blue {
-	font-family: 'Roboto', Helvetica, sans-serif;
 	float: left;
 	width: 100%;
 	border: #fbfbfb solid 1px;

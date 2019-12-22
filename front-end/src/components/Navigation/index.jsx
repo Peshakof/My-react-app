@@ -2,21 +2,28 @@ import React, { useContext, Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../Contexts/UserContext';
 import sessionManager from '../../utils/session-manager';
-import './style.css';
+import FontAwesome from 'react-fontawesome';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css'
+import './style.scss';
 
 function Navigation() {
   const [user] = useContext(AuthContext);
   const [isLogged, setIslogged] = useState(false);
   const username = sessionManager.getUsername();
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     setIslogged(user.isLogged);
   }, [user])
 
   return (
     <div className="Navigation">
-      <div className="body">
-        <nav>
+      <input type="checkbox" id="toggle-nav" className="toggle-nav"></input>
+      <div className="site-header">
+        <label for="toggle-nav" className="toggle-nav-btn">
+          <FontAwesome className="fas fa-bars"></FontAwesome>
+          <FontAwesome className="fas fa-times"></FontAwesome>
+        </label>
+        <nav className="site-nav">
           <div className="header">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt57yXJ1fa88cnfHo4s-zVVN2EKBaS4GRve1wrfB6ztwNw-mhBYA&s" width="80px" height="50px" alt="Logo"></img>
           </div>

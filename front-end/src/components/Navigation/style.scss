@@ -1,0 +1,142 @@
+@import '../../styles/mixins.scss';
+
+nav.site-nav {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  padding: 0;
+  // z-index: 100;
+  top: 0px;
+  opacity: 0.8;
+
+  .header {
+    padding: 0px 30px 0px 30px;
+    box-sizing: border-box;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+    display: block;
+    padding: 0 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 50px;
+    color: white;
+
+    &:hover {
+      background: var(--color-hover);
+    }
+  }
+
+  @include layout(mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-basis: 100%;
+
+    .header {
+      text-align: center;
+      padding: 1em 0 0 0;
+      flex-basis: 100%;
+    }
+
+    ul {
+      display: flex;
+      flex-basis: 60%;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .link {
+        flex-basis: 100%;
+        text-align: center;
+      }      
+    }
+  }
+
+  @include layout(laptop) {
+    height: 50px;
+
+    .header {
+      float: left;
+    }
+
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0 30px;
+      float: right;
+    }
+  }
+}
+
+.toggle-nav-btn {
+  display: none;
+
+  .fa-times {
+    display: none;
+  }
+
+  @include layout(mobile) {
+    .fas {
+      position: absolute;
+      z-index: 1000;
+      top: 1em;
+      left: 1.5em;
+      font-size: 2.5em;
+    }
+  }
+
+  @include layout(phone) {
+    .fas {
+      z-index: 1000;
+      top: 0.6em;
+      left: 0.6em;
+      font-size: 2.2em;
+    }
+  }
+
+}
+
+.toggle-nav {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include layout(mobile) {
+
+    &+.site-header {
+      .toggle-nav-btn {
+        display: block;
+      }
+
+      .site-nav {
+        display: none;
+      }
+    }
+
+    &:checked+.site-header {
+
+      .site-nav {
+        display: block;
+      }
+
+      .toggle-nav-btn {
+        display: block;
+
+        .fa-bars {
+          display: none;
+        }
+
+        .fa-times {
+          display: block;
+        }
+      }
+    }
+  }
+}

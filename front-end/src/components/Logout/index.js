@@ -1,13 +1,15 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {AuthContext} from '../Contexts/UserContext';
 import { Redirect } from 'react-router-dom';
 import userService from '../../services/user-service';
-import sessionManager from '../../utils/session-manager';
 
-function Logout() {
+function Logout(props) {
   const [user, setUserStatus] = useContext(AuthContext);
-  userService.logout();
-  setUserStatus({isLogged: sessionManager.isLogged(), userId: ''});
+
+  useEffect(()=>{
+    userService.logout();
+    setUserStatus({isLogged: false, userId: ''});
+  })
   return(
     <Redirect to='/login' />
   )
