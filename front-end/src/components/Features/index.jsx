@@ -6,7 +6,7 @@ import getTotalAmount from './expense-helper';
 import { AuthContext } from '../Contexts/UserContext';
 
 import '../../variables.css';
-import './style.css';
+import './style.scss';
 
 function Features() {
   const [totalAmountOfExp, setTotalAmountOfExp] = useState(0);
@@ -57,9 +57,10 @@ function Features() {
         user.isLogged ?
           <Fragment>
             <section className="sec2">
-              {/* <h3>Search by date</h3>
-        <Calendar className={'calendar'} /> */}
-              <DonutChart className="features-donut" outerRadius={0.8} innerRadius={0.6} colors={['red', 'green']}
+              <DonutChart className="features-donut"
+                outerRadius={0.8} 
+                innerRadius={0.6} 
+                colors={['red', 'green']}
                 data={[
                   {
                     label: 'Expenses',
@@ -71,7 +72,7 @@ function Features() {
                   }
                 ]} />
             </section>
-            <ul>
+            <ul className="add-exp-in">
               <li className="red">
                 <Link className="addExpense" to="/add-expense">
                   +
