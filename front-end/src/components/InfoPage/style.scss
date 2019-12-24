@@ -1,78 +1,87 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import '../../styles/mixins.scss';
 
 .expense-page {
   max-width: 100%;
   margin: 3.5em 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 2em 4em;
+
+  @include layout(laptop) {
+    .mobile-container {
+      flex-basis: 35%;
+    }
+  }
+
+  @include layout(mobile) {
+    .mobile-container {
+      flex-basis: 80%;
+    }
+  }
+
+  @include layout(phone) {
+    .mobile-container {
+      flex-basis: 100%;
+    }
+  }
+
+  .mobile-container {
+    height: 567px;
+    border-radius: 5px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    box-shadow: 0px 10px 13px 2px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+    .header {
+      width: 100%;
+      height: 50px;
+      background: var(--color-darker);
+      border-bottom: 4px solid #b7b767;
+      text-align: center;
+      padding: 1em 1.5em;
+
+      .title {
+        font-weight: bold;
+        color: white;
+        font-size: 24px;
+        text-shadow: 0px 0px 20px rgb(34, 197, 12);
+      }
+    }
+
+    .jumbo-tron {
+      width: 100%;
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      background: radial-gradient(center, #734b6d, #42275a);
+
+    }
+
+    .right {
+      float: right;
+      background: rgb(199, 6, 6);
+    }
+  }
+
+  .edit {
+    @include layout(laptop) {
+      flex-basis: 30%;
+    }
+
+    @include layout(mobile) {
+      flex-basis: 80%;
+    }
+
+    @include layout(phone) {
+      flex-basis: 100%;
+    }
+  }
 }
 
-.mobile-container {
-  /* margin: 0 auto; */
-  /* width: 460px; */
-  flex-basis: 35%;
-  height: 567px;
-  border-radius: 5px;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  box-shadow: 0px 10px 13px 2px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-}
 
-#form-div {
-  flex-basis: 30%;
-}
 
-.mobile-container .left {
-  float: left;
-}
-.mobile-container .right {
-  float: right;
-  background: rgb(199, 6, 6);
-}
-.mobile-container .header {
-  width: 100%;
-  height: 50px;
-  background: var(--color-darker);
-  
-  border-bottom: 4px solid #b7b767;
-}
-.mobile-container .header .nav {
-  padding: 0 10px;
-}
-.mobile-container .header .nav .fa {
-  color: white;
-  line-height: 50px;
-  cursor: pointer;
-}
-.mobile-container .header .nav .cart {
-  font-size: 22px;
-}
-.mobile-container .header .nav .back {
-  font-size: 20px;
-}
-.mobile-container .jumbo-tron {
-  width: 100%;
-  position: relative;
-  height: 250px;
-  overflow: hidden;
-  background: radial-gradient(center, #734b6d, #42275a);
-}
-.mobile-container .jumbo-tron .jumbo-tron-product-title {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-weight: bold;
-  color: white;
-  font-size: 24px;
-  text-shadow: 0px 0px 20px rgb(34, 197, 12);
-}
 .mobile-container .jumbo-tron .image-close-up {
   width: 600px;
   height: 600px;

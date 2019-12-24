@@ -7,7 +7,7 @@ import ExpenseForm from '../NewExpenseForm';
 import EditIncomeForm from '../EditIncomeForm';
 
 import { toast } from 'react-toastify';
-import './style.css';
+import './style.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 function ExpensePage(props) {
@@ -68,13 +68,9 @@ function ExpensePage(props) {
         <Fragment>
           <div className="mobile-container">
             <div className="header">
-              <div className="nav">
-                <div className="back left"><i className="fa fa-long-arrow-left"></i></div>
-                <div className="cart right"><i className="fa fa-shopping-cart"></i></div>
-              </div>
+              <h1 className="title">Expense overview</h1>
             </div>
             <div className="jumbo-tron">
-              <h1 className="jumbo-tron-product-title">Expense overview</h1>
               <div className="image-close-up"></div><img id="product-image" src="https://www.journalofaccountancy.com/content/dam/jofa/issues/2016/nov/reimbursement-fraud.jpg" alt="Main Product" />
             </div>
             <div className="product-details-wrapper">
@@ -105,13 +101,9 @@ function ExpensePage(props) {
         <Fragment>
           <div className="mobile-container">
             <div className="header">
-              <div className="nav">
-                <div className="back left"><i className="fa fa-long-arrow-left"></i></div>
-                <div className="cart right"><i className="fa fa-shopping-cart"></i></div>
-              </div>
+              <h1 className="title">Income overview</h1>
             </div>
             <div className="jumbo-tron">
-              <h1 className="jumbo-tron-product-title">Income overview</h1>
               <div className="image-close-up"></div><img id="product-image" src="https://www.journalofaccountancy.com/content/dam/jofa/issues/2016/nov/reimbursement-fraud.jpg" alt="Main Product" />
             </div>
             <div className="product-details-wrapper">

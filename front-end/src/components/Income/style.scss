@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import '../../styles/mixins.scss';
+
+#form-income {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 6em 3em 4em 3em;
+  background-image: url('http://www.arborinvestmentplanner.com/wp-content/uploads/2012/12/IncomeStatement2.jpg');
+  background-size: cover;
+
+  @include layout(mobile) {
+    .form-div {
+      flex-basis: 40em;
+    }
+  }
+
+  @include layout(phone) {
+    .form-div {
+      flex-basis: 30em;
+    }
+  }
+
+  @include layout(desktop) {
+    .form-div {
+      flex-basis: 26em;
+    }
+  }
+
+  .form-div {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 15px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+
+    .feedback-input,
+    select {
+      color: #3c3c3c;
+      font-weight: 400;
+      font-size: 18px;
+      border-radius: 0.3em;
+      line-height: 22px;
+      background-color: #fbfbfb;
+      opacity: 0.8;
+      padding: 13px 13px 13px 54px;
+      margin-bottom: 10px;
+      width: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-box-shadow: 3px 3px 11px 5px rgba(0, 0, 0, 0.44);
+      -moz-box-shadow: 3px 3px 11px 5px rgba(0, 0, 0, 0.44);
+      box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.44);
+      border: 2px solid rgba(0, 0, 0, 0);
+    }
+  }
+
+  .feedback-input:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 2px solid var(--color-darker);
+    color: var(--color-darker);
+    outline: none;
+    padding: 13px 13px 13px 54px;
+  }
+
+  #date,
+  #merchant,
+  #price,
+  #category,
+  #comment {
+    background-size: 25px 25px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+  }
+}

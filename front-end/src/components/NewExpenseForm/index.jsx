@@ -4,6 +4,7 @@ import expenseService from '../../services/expense-service';
 import useInput from '../../hooks/useInputChange';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './style.scss'
 
 function ExpenseForm(props) {
   const id = props.id;
@@ -35,7 +36,7 @@ function ExpenseForm(props) {
   }
 
   return (
-    <div id="form-div">
+    <div className="form-div edit">
       <form className="form" id="form1" onSubmit={handleSubmit}>
         <p className="merchant">
           <input name="merchant" type="text" className="feedback-input" placeholder={props.expense.merchant} id="merchant" {...bindMerchant} />

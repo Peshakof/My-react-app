@@ -4,7 +4,7 @@ import { AuthContext } from '../Contexts/UserContext';
 import { toast } from 'react-toastify';
 import incomeValidator from '../../utils/IncomeValidator';
 import incomeService from '../../services/income-servise';
-import './style.css';
+import './style.scss';
 
 function AddIncome(props) {
   const [user] = useContext(AuthContext);
@@ -36,7 +36,7 @@ function AddIncome(props) {
 
   return (
     <div id="form-income">
-      <div id="form-div">
+      <div className="form-div">
         <form className="form" id="form1" onSubmit={handleSubmit}>
 
           <p className="price">

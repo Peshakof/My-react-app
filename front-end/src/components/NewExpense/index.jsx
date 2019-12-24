@@ -4,7 +4,7 @@ import expenseValidator from '../../utils/expenseValidator';
 import expenseService from '../../services/expense-service';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Contexts/UserContext';
-import './style.css';
+import './style.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 function AddExpense(props) {
@@ -44,7 +44,7 @@ function AddExpense(props) {
 
   return (
     <div id="form-expense">
-      <div id="form-div">
+      <div className="form-div">
         <form className="form" id="form1" onSubmit={handleSubmit}>
           <p className="merchant">
             <input name="merchant" type="text" className="feedback-input" placeholder="Merchant" id="Merchant" {...bindMerchant}/>
