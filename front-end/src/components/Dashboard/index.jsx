@@ -9,7 +9,7 @@ import { AuthContext } from '../Contexts/UserContext';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import './style.css';
+import './style.scss';
 
 class Dashboard extends Component {
 
