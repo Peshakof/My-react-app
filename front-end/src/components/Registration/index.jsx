@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import userService from '../../services/user-service'
 import registerValidator from '../../utils/registerValidation';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 class Register extends Component {
@@ -59,7 +60,7 @@ class Register extends Component {
                     </div>
     
                     <div className="register-form-footer">
-                    <input type="submit" name="submit" value="Login" className="login-btn" />
+                    <Link to="/login" className="login-btn">Login</Link>
                     <input type="submit" name="submit" value="Register" className="register-btn" />
                     </div>
                 

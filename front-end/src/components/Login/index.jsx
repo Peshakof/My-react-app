@@ -4,6 +4,7 @@ import userService from '../../services/user-service';
 import { AuthContext } from '../Contexts/UserContext';
 import sessionManager from '../../utils/session-manager';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom'
 
 import 'react-toastify/dist/ReactToastify.css';
 import './style.scss';
@@ -66,7 +67,7 @@ function Login(props) {
 
           <div className="login-form-footer">
             <input type="submit" name="submit" value="Login" className="button" />
-            <input type="submit" name="submit" value="Register" className="register" />
+            <Link to="/register" className="register">Register</Link>
           </div>
 
         </form>
