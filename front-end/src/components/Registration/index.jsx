@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import userService from '../../services/user-service'
 import registerValidator from '../../utils/registerValidation';
-import './style.css';
+import './style.scss';
 
 class Register extends Component {
 
@@ -58,7 +58,7 @@ class Register extends Component {
                     <div className="pass-icon"></div>	
                     </div>
     
-                    <div className="footer">
+                    <div className="register-form-footer">
                     <input type="submit" name="submit" value="Login" className="login-btn" />
                     <input type="submit" name="submit" value="Register" className="register-btn" />
                     </div>

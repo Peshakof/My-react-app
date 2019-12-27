@@ -6,7 +6,7 @@ import sessionManager from '../../utils/session-manager';
 import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import './style.css';
+import './style.scss';
 
 function Login(props) {
   const [user, setUserStatus] = useContext(AuthContext);
@@ -42,7 +42,7 @@ function Login(props) {
 
   return (
     <div className="Login">
-      <div id="bg"></div>
+      {/* <div id="bg"></div> */}
 
       <div id="wrapper">
 
@@ -64,7 +64,7 @@ function Login(props) {
             <div className="pass-icon"></div>
           </div>
 
-          <div className="footer">
+          <div className="login-form-footer">
             <input type="submit" name="submit" value="Login" className="button" />
             <input type="submit" name="submit" value="Register" className="register" />
           </div>

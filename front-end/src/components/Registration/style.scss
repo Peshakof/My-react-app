@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 ::selection {
 	color: #fff;
 	background: #f676b2; /* Safari */
@@ -14,76 +16,95 @@
 	outline: none;
 }
 
-.Login {
-	max-width: 420px;
-	height: 35em;
+.Register {
+	width: 100%;;
 	margin: 3.5em auto;
 	display: flex;
-	justify-content: center;
+  justify-content: center;
+
+  .register-form {
+    // height: 28em;
+    margin-top: 4em;
+    position: relative;
+    overflow: hidden;
+    background: #f3f3f3;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow:2px 5px 16px 0px rgb(20, 199, 13), 5px 5px 15px 5px rgba(0,0,0,0);
+  }
+
+  .header {
+    padding: 40px 30px 30px 30px;
+  }
+  
+  h1 {
+    font-weight: 300;
+    font-size: 28px;
+    line-height:34px;
+    color: #414848;
+    text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+    margin-bottom: 10px;
+  }
+
+  span {
+    font-size: 11px;
+    line-height: 16px;
+    color: #678889;
+    text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+  }
+  
+  .content {
+    padding: 0 30px 25px 30px;
+  }
+
+  .input {
+    width: 100%;
+    padding: 15px 25px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #9d9e9e;
+    text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+    
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+  }
+  
+  @include layout(desktop) {
+    height: 33em;
+
+    .register-form {
+      width: 18em;
+    }
+  }
+
+  @include layout(mobile) {
+    .register-form {
+      width: 60%;
+    }
+  }
+
+  @include layout(phone) {
+    .register-form {
+      width: 70%;
+    }
+  }
 }
 
-.login-form {
-	width: 300px;
-	position: relative;
-	margin-top: 5em;
-	background: #f3f3f3;
-	border: 1px solid #000;
-	border-radius: 5px;
-	box-shadow:2px 5px 16px 0px rgb(20, 199, 13), 5px 5px 15px 5px rgba(0,0,0,0);
-}
-
-.login-form .header {
-	padding: 40px 30px 30px 30px;
-}
-
-.login-form .header h1 {
-	font-weight: 300;
-	font-size: 28px;
-	line-height:34px;
-	color: #414848;
-	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
-	margin-bottom: 10px;
-}
-
-.login-form .header span {
-	font-size: 11px;
-	line-height: 16px;
-	color: #678889;
-	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
-}
-
-.login-form .content {
-	padding: 0 30px 25px 30px;
-}
-
-.login-form .content .input {
-	width: 188px;
-	padding: 15px 25px;
-	
-	font-weight: 400;
-	font-size: 14px;
-	color: #9d9e9e;
-	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
-	
-	background: #fff;
-	border: 1px solid #fff;
-	border-radius: 5px;
-	
-	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
-	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
-	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
-}
-
-.login-form .content .password, .login-form .content .pass-icon {
+.register-form .content .password, .register-form .content .pass-icon {
 	margin-top: 25px;
 }
 
-.login-form .content .input:hover {
+.register-form .content .input:hover {
 	background: #dfe9ec;
 	color: #414848;
 }
 
-.login-form .content .input:focus {
+.register-form .content .input:focus {
 	background: #dfe9ec;
 	color: #414848;
 	
@@ -111,12 +132,12 @@
 
 .user-icon {
 	top:153px; /* Positioning fix for slide-in, got lazy to think up of simpler method. */
-	background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/login-form/images/user-icon.png) no-repeat center;	
+	background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/register-form/images/user-icon.png) no-repeat center;	
 }
 
 .pass-icon {
 	top:201px;
-	background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/login-form/images/pass-icon.png) no-repeat center;
+	background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/register-form/images/pass-icon.png) no-repeat center;
 }
 
 .content input:focus + div{
@@ -124,7 +145,7 @@
 }
 
 /* Animation */
-.input, .user-icon, .pass-icon, .button, .register {
+.input, .user-icon, .pass-icon, .login-btn, .register-btn {
 	transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
@@ -132,13 +153,11 @@
 	-ms-transition: all 0.5s ease;
 }
 
-/*******************
-FOOTER
-*******************/
-
-.login-form .footer {
+.register-form-footer {
 	padding: 25px 30px 40px 30px;
-	overflow: auto;
+  overflow: auto;
+  display: flex;
+  justify-content: space-around;
 	
 	background: #d4dedf;
 	border-top: 1px solid #fff;
@@ -148,8 +167,7 @@ FOOTER
 	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
 }
 
-/* Login button */
-.login-form .footer .button {
+.register-form-footer .register-btn {
 	float:right;
 	padding: 11px 25px;
 	
@@ -168,7 +186,7 @@ FOOTER
 	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 }
 
-.login-form .footer .button:hover {
+.register-form-footer .register-btn:hover {
 	background: #29df05;
 	border: 1px solid rgba(256,256,256,0.75);
 	
@@ -177,15 +195,14 @@ FOOTER
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 
-.login-form .footer .button:focus {
+.register-form-footer .login-btn:focus {
 	position: relative;
 	bottom: -1px;
 }
 
-/* Register button */
-.login-form .footer .register {
+.register-form-footer .login-btn {
 	display: block;
-	float: right;
+	float: left;
 	padding: 10px;
 	margin-right: 20px;
 	
@@ -199,11 +216,11 @@ FOOTER
 	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
 }
 
-.login-form .footer .register:hover {
+.register-form-footer .login-btn:hover {
 	color: #29df05;
 }
 
-.login-form .footer .register:focus {
+.register-form-footer .login-btn:focus {
 	position: relative;
 	bottom: -1px;
 }
