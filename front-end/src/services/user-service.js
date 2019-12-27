@@ -4,7 +4,7 @@ import sessionManager from '../utils/session-manager';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-const host = 'http://localhost:8080/api';
+const host = 'https://mern-stack-expense-tracker.herokuapp.com/api';
 
 const userRequester = {
   register: (username, password) => {
