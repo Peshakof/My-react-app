@@ -11,30 +11,33 @@
   section.sec1 {
 
     h1 {
-      color: var(--color-primery);
+      color: #0FC320;
       font-weight: 400;
       text-align: center;
       padding: 1em;
       margin-top: 2em;
       text-shadow: 2px 2px 2px rgb(59, 58, 58);
-      border-radius: 0.2em;
-      box-shadow: -2px -2px 2px 2px rgba(214, 216, 218, 0.75), 3px 3px 3px 0px rgba(77, 78, 78, 0.75);
+      border-radius: 0.3em;
+      background-image: linear-gradient(to left top, #3e3f40, #323233, #262627, #1a1a1b, #0d0d0e);
+      box-shadow: -3px -3px 5px 0px #4e4f50, 3px 3px 5px 0px #0d0d0e;
     }
 
     h2 {
       font-weight: 400;
       margin-top: 2em;
       padding: 0.6em 0;
-      color: var(--color-hover);
+      color: #0FC320;
     }
 
     ul {
       border-radius: 0.5em;
       padding: 1em 0;
-      box-shadow: 2px 2px 30px 30px rgba(229, 229, 236, 0.75), inset 2px 2px 4px 2px rgba(107, 109, 109, 0.75);
+      background-image: linear-gradient(to left top, #3e3f40, #323233, #262627, #1a1a1b, #0d0d0e);
+      box-shadow: -3px -3px 5px 0px #3e3f40, 3px 3px 5px 0px #0d0d0e;
       
       li {
         list-style: decimal;
+        color: var(--color-primery);
       }
     }
   }
@@ -48,7 +51,7 @@
     
     .features-donut {
       border-radius: 0.2em;
-      box-shadow: -4px -4px 4px 4px rgba(223, 236, 236, 0.75), 4px 4px 6px 4px rgba(67, 68, 68, 0.75);
+      box-shadow: -4px -4px 4px 4px rgba(224, 223, 236, 0.068), 4px 4px 6px 4px rgba(12, 12, 12, 0.75);
     }
 
   }
@@ -62,16 +65,22 @@
     justify-content: center;
     align-items: center;
     margin: 1.5em 0 1.5em 1.5em;
-    background-color: var(--color-darker);
+    // background-color: var(--color-darker);
+    background-image: linear-gradient(to left top, #3e3f40, #323233, #262627, #1a1a1b, #0d0d0e);
+
   }
 
   section.footer {
     list-style: none;
     display: block;
     margin-top: 2.5em;
-    border: var(--color-hover) 2px solid;
+    border: #0FC320 2px solid;
     text-align: center;
     border-radius: 0.5em;
+    background-image: linear-gradient(to left top, #3e3f40, #323233, #262627, #1a1a1b, #0d0d0e);
+    box-shadow: -5px -5px 10px 0px #4e4f50, 3px 3px 8px 0px #030303;
+    color: var(--color-primery);
+
   }
 
   @include layout(laptop) {
@@ -171,8 +180,8 @@ ul.add-exp-in li span {
   position: absolute;
   top: 1em;
   left: 5em;
-  border-bottom: greenyellow 2px solid;
   width: 6em;
+  color: var(--color-hover);
 }
 
 ul.add-exp-in .red {
@@ -184,7 +193,7 @@ ul.add-exp-in .green {
 }
 
 .red, .green {
-  box-shadow: -2px -2px 2px 2px rgba(238, 250, 250, 0.75), 2px 2px 2px 2px rgba(67, 68, 68, 0.75);
+  box-shadow: -3px -3px 3px 2px rgba(115, 117, 117, 0.75), 3px 3px 3px 2px rgba(67, 68, 68, 0.75);
 }
 
 .addExpense {

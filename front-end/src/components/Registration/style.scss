@@ -23,14 +23,12 @@
   justify-content: center;
 
   .register-form {
-    // height: 28em;
     margin-top: 4em;
     position: relative;
     overflow: hidden;
-    background: #f3f3f3;
-    border: 1px solid #fff;
     border-radius: 5px;
-    box-shadow:2px 5px 16px 0px rgb(20, 199, 13), 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: -5px -5px 5px 0px #656768, 5px 5px 5px 0px #0d0d0e;
+    background-image: linear-gradient(to left top, #3e3f40, #323233, #262627, #1a1a1b, #0d0d0e);
   }
 
   .header {
@@ -155,13 +153,10 @@
   overflow: auto;
   display: flex;
   justify-content: space-around;
-	
-	background: #d4dedf;
+  background-image: linear-gradient(to left top, #3e3f40, #323233, #262627, #1a1a1b, #0d0d0e);
 	border-top: 1px solid #fff;
 	
-	box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
-	-moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
-	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+
 }
 
 .register-form-footer .register-btn {
@@ -202,15 +197,13 @@
 	float: left;
 	padding: 10px;
 	margin-right: 20px;
-	
+	color: var(--color-primery);
 	background: none;
 	border: none;
 	cursor: pointer;
-	
+	text-decoration: none;
 	font-weight: 300;
 	font-size: 18px;
-	color: #414848;
-	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
 }
 
 .register-form-footer .login-btn:hover {
@@ -219,5 +212,5 @@
 
 .register-form-footer .login-btn:focus {
 	position: relative;
-	bottom: -1px;
+	// bottom: -1px;
 }

@@ -12,7 +12,9 @@ nav.site-nav {
 
   .link {
     text-decoration: none;
-    box-shadow: -1px -1px 1px 1px rgba(165, 162, 162, 0.9), 1px 1px 1px 1px rgba(8, 8, 8, 0.9);
+    box-shadow: -4px -4px 4px 0px #4e4f50, 3px 3px 5px 0px #0d0d0e;
+
+    // box-shadow: -1px -1px 1px 1px rgba(165, 162, 162, 0.9), 1px 1px 1px 1px rgba(8, 8, 8, 0.9);
     margin-right: 0.6em;
     border-radius: 0.3em;
   }
@@ -29,8 +31,8 @@ nav.site-nav {
     border-radius: 0.3em;
 
     &:hover {
-      background: var(--color-hover);
-      color: rgb(53, 51, 49);
+      // background: var(--color-hover);
+      background-image: linear-gradient(to right bottom, #000000, #0fc320);
     }
   }
 

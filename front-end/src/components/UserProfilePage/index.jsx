@@ -18,21 +18,21 @@ function UserProfile() {
   const [user] = useContext(AuthContext);
   const username = sessionManager.getUsername();
 
-  useEffect(()=>{
+  useEffect(() => {
     Promise.all([
       expenseService.getAll(user.userId),
       incomeService.getAll(user.userId)
     ])
-    .then(([expenses, incomes]) => {
-      setExpensesCount(expenses.data.length)
-      setIncomesCount(incomes.data.length)
-      setExpensesTotal(calculateTotalAmount(expenses.data))
-      setIncomesTotal(calculateTotalAmount(incomes.data))
-      setBalance(incomesTotal - expensesTotal)
-    })
-    .catch(err=>{
-      console.error(err);
-    });
+      .then(([expenses, incomes]) => {
+        setExpensesCount(expenses.data.length)
+        setIncomesCount(incomes.data.length)
+        setExpensesTotal(calculateTotalAmount(expenses.data))
+        setIncomesTotal(calculateTotalAmount(incomes.data))
+        setBalance(incomesTotal - expensesTotal)
+      })
+      .catch(err => {
+        console.error(err);
+      });
   })
 
   return (
@@ -44,7 +44,7 @@ function UserProfile() {
 
         <ul className="data">
           <li>
-            You have: 
+            You have:
             <span> {expensesCount} </span>
             expenses in total.
           </li>
@@ -55,21 +55,22 @@ function UserProfile() {
           </li>
           <li>
             Your balance is:
-            {balance > 0 ? 
-            <span className="positive"> {balance}</span>
-            : 
-            <span className="negative"> {balance}</span>
+            {balance > 0 ?
+              <span className="positive"> {balance}</span>
+              :
+              <span className="negative"> {balance}</span>
             }
           </li>
         </ul>
-      </div>
-      <section className="footer">
-        <h1>To view more detailed info
+        <section className="footer">
+          <h1>To view more detailed info
           <Link to="/dashboard">
-          <span className="entypo-dribbble"></span> click here. 
+              <span className="entypo-dribbble"></span> click here.
           </Link>
-        </h1>
-      </section>
+          </h1>
+        </section>
+      </div>
+
     </Fragment>
   )
 }

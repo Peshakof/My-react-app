@@ -6,7 +6,7 @@
 }
 
 .title-pen {
-  color: #333;
+  color: var(--color-hover);
   font-family: "Coda", sans-serif;
   text-align: center;
   margin-top: 2em;
@@ -19,15 +19,17 @@
   margin: auto;
 	width: 25em; 
   height: 24em;
-  background: #fff;
+  /* background: #fff; */
+  background-image: linear-gradient(to left top, #3e3f40, #323233, #262627, #1a1a1b, #0d0d0e);
+  box-shadow: -5px -5px 5px 0px #565858, 5px 5px 5px 0px #0d0d0e;
   border-radius: .3em;
 }
 
-.user-profile  .username {
+.user-profile .username {
   margin: auto;
   margin-top: -4.40em;
   margin-left: 5.80em;
-  color: #658585;
+  color: var(--color-primery);
   font-size: 1.53em;
   font-family: "Coda", sans-serif;
   font-weight: bold;
@@ -52,7 +54,7 @@
 
 .user-profile ul.data {
 	margin: 2em auto;
-  background: #4eb6b6;
+  background: #cbcece;
   text-align: center;
   border-radius: 0 0 .3em .3em;
 }
@@ -72,7 +74,7 @@
 }
 
 .user-profile .positive {
-  color: rgb(150, 245, 7);
+  color: var(--color-hover);
 }
 
 .user-profile .negative {
@@ -84,10 +86,8 @@
 }
 
 .user-profile li:nth-child(2) span {
-  color: rgb(150, 245, 7);
+  color: var(--color-hover);
 }
-
-
 
 .user-profile span:hover {
   color: #daebea;
@@ -98,10 +98,10 @@
   text-align: center;
   clear: both;
   font-family: "Coda", sans-serif;
-  color: #343f3d;
+  color: var(--color-primery);
   font-size: 1.4em;
 }
 .footer > h1 a {
   text-decoration: none;
-  color: #ea4c89;
+  color: var(--color-hover);
 }
