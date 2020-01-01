@@ -14,8 +14,11 @@
       color: var(--color-primery);
       font-weight: 400;
       text-align: center;
-      padding-top: 2em;
+      padding: 1em;
+      margin-top: 2em;
       text-shadow: 2px 2px 2px rgb(59, 58, 58);
+      border-radius: 0.2em;
+      box-shadow: -2px -2px 2px 2px rgba(214, 216, 218, 0.75), 3px 3px 3px 0px rgba(77, 78, 78, 0.75);
     }
 
     h2 {
@@ -25,16 +28,29 @@
       color: var(--color-hover);
     }
 
-    ul li {
-      list-style: decimal;
+    ul {
+      border-radius: 0.5em;
+      padding: 1em 0;
+      box-shadow: 2px 2px 30px 30px rgba(229, 229, 236, 0.75), inset 2px 2px 4px 2px rgba(107, 109, 109, 0.75);
+      
+      li {
+        list-style: decimal;
+      }
+    }
+  }
+
+  section.sec2 {
+    box-sizing: border-box;
+    flex-basis: 60%;
+    border-radius: 4px;
+    margin-top: 2em;
+    border-radius: 0.5em;
+    
+    .features-donut {
+      border-radius: 0.2em;
+      box-shadow: -4px -4px 4px 4px rgba(223, 236, 236, 0.75), 4px 4px 6px 4px rgba(67, 68, 68, 0.75);
     }
 
-    section.sec2 {
-      box-sizing: border-box;
-      height: auto;
-      flex-basis: 50%;
-      margin-top: 2em;
-    }
   }
 
   ul.add-exp-in li {
@@ -167,6 +183,10 @@ ul.add-exp-in .green {
   border: 2px solid greenyellow;
 }
 
+.red, .green {
+  box-shadow: -2px -2px 2px 2px rgba(238, 250, 250, 0.75), 2px 2px 2px 2px rgba(67, 68, 68, 0.75);
+}
+
 .addExpense {
   color: red;
   text-decoration: none;
@@ -182,7 +202,7 @@ ul.add-exp-in .green {
 .addExpense,
 .addIncome {
   width: 100%;
-  text-align: center;
+  text-align: center;  
 }
 
 section.sec1 p {

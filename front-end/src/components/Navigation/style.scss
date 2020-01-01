@@ -3,29 +3,30 @@
 nav.site-nav {
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
-  padding: 0;
-  // z-index: 100;
+  padding: 0.5em ;
   top: 0px;
   opacity: 0.8;
-
-  .header {
-    padding: 0px 30px 0px 30px;
-    box-sizing: border-box;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .link {
     text-decoration: none;
+    box-shadow: -1px -1px 1px 1px rgba(165, 162, 162, 0.9), 1px 1px 1px 1px rgba(8, 8, 8, 0.9);
+    margin-right: 0.6em;
+    border-radius: 0.3em;
   }
 
   li {
     list-style: none;
     display: block;
-    padding: 0 25px;
+    padding: 0 1em;
     text-transform: uppercase;
     font-weight: bold;
-    line-height: 50px;
+    line-height: 40px;
     color: white;
     transition: all 0.3s ease;
+    border-radius: 0.3em;
 
     &:hover {
       background: var(--color-hover);
@@ -39,41 +40,28 @@ nav.site-nav {
     justify-content: center;
     flex-basis: 100%;
 
-    .header {
-      text-align: center;
-      padding: 1em 0 0 0;
-      flex-basis: 100%;
-    }
-
     ul {
       display: flex;
       flex-basis: 60%;
       justify-content: center;
       flex-wrap: wrap;
-
       animation: slide 0.15s ease-in;
 
       .link {
-        flex-basis: 100%;
+        flex-basis: 50%;
         text-align: center;
       }
     }
-
   }
 
   @include layout(laptop) {
     height: 50px;
     position: fixed;
 
-    .header {
-      float: left;
-    }
-
     ul {
       display: flex;
       margin: 0;
       padding: 0 30px;
-      float: right;
     }
   }
 }
@@ -104,7 +92,6 @@ nav.site-nav {
       font-size: 2.2em;
     }
   }
-
 }
 
 .toggle-nav {

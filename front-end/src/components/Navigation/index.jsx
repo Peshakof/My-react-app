@@ -24,9 +24,7 @@ function Navigation() {
           <FontAwesome className="fas fa-times"></FontAwesome>
         </label>
         <nav className="site-nav">
-          <div className="header">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt57yXJ1fa88cnfHo4s-zVVN2EKBaS4GRve1wrfB6ztwNw-mhBYA&s" width="80px" height="50px" alt="Logo"></img>
-          </div>
+          
           <ul>
             <Link className="link" to="/">
               <li className="active">Home</li>

@@ -14,8 +14,9 @@ html {
 }
 
 body {
+  background: rgb(204, 206, 204);
   /* background-image: radial-gradient(circle, #f7f9fc, #d5d9db, #b4bab9, #979b98, #7c7d79); */
-  background-image: linear-gradient(to right, #e9f7f7, #d9f1f2, #c9ebec, #b9e5e8, #a8dfe3, #9adee2, #8cdde1, #7cdcdf, #6be0df, #58e3dd, #41e7da, #24ead5);
+  /* background-image: linear-gradient(to right, #e9f7f7, #d9f1f2, #c9ebec, #b9e5e8, #a8dfe3, #9adee2, #8cdde1, #7cdcdf, #6be0df, #58e3dd, #41e7da, #24ead5); */
 }
 
 @media (min-width: 600px) {

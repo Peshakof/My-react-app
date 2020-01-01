@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 const host = 'https://mern-stack-expense-tracker.herokuapp.com/api';
+// const host = 'http://localhost:8080/api';
+
 
 const incomeRequester = {
   createIncome: (income) => {
