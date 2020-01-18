@@ -30,8 +30,8 @@ function Login(props) {
         .then((res) => {
           const { token, user } = res.data;
           sessionManager.save(token, user.username);
-          toast.success('You successfully logged in!');
           setUserStatus({ isLogged: sessionManager.isLogged(), userId: user._id });
+          toast.success('You successfully logged in!');
           props.history.push('/');
         })
         .catch(() => {

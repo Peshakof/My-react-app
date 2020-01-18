@@ -91,7 +91,7 @@ function Features() {
           <Fragment>
             <section className="footer">
               <header>
-                <h3>Don`t have un accont?</h3>
+                <h3>Don`t have an accont?</h3>
                 <Link className="link" to="/register">
                   <li className="active">Go to Register Page</li>
                 </Link>

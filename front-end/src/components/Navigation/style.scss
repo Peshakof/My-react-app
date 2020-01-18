@@ -44,13 +44,13 @@ nav.site-nav {
 
     ul {
       display: flex;
-      flex-basis: 60%;
+      flex-basis: 100%;
       justify-content: center;
       flex-wrap: wrap;
       animation: slide 0.15s ease-in;
 
       .link {
-        flex-basis: 50%;
+        flex-basis: 100%;
         text-align: center;
       }
     }

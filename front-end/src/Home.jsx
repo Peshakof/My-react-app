@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import Navigation from './components/Navigation';
 import Features from './components/Features';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Registration';
-import NotFound from './components/NotFound';
+// import NotFound from './components/NotFound';
 import Dashboard from './components/Dashboard';
 import AddExpense from './components/NewExpense';
 import AddIncome from './components/Income';
@@ -16,7 +16,7 @@ import UserProfile from './components/UserProfilePage';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { AuthProvider } from './components/Contexts/UserContext';
+import { AuthProvider, AuthContext } from './components/Contexts/UserContext';
 import { TransactionProvider } from './components/Contexts/TransactionsContext';
 
 import './Home.css';
@@ -41,7 +41,7 @@ function Home() {
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
               <PrivateRoute path="/income-info/:id" exact component={InfoPage} />
             </TransactionProvider>
-            <Route path="*" component={NotFound} />
+            <Route path="*" render={(<h1>not found</h1>)} />
           </Switch>
           <Footer />
         {/* </div> */}

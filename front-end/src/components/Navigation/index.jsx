@@ -10,10 +10,11 @@ function Navigation() {
   const [user] = useContext(AuthContext);
   const [isLogged, setIslogged] = useState(false);
   const username = sessionManager.getUsername();
-
+  console.log(Document.cookie)
+  
   useEffect(() => {
     setIslogged(user.isLogged);
-  }, [user])
+  }, [user.isLogged, isLogged])
 
   return (
     <div className="Navigation">
@@ -29,7 +30,8 @@ function Navigation() {
             <Link className="link" to="/">
               <li className="active">Home</li>
             </Link>
-            {isLogged ?
+            
+            {user.isLogged ?
               <Fragment>
                 <Link className="link" to="/user-profile">
                   <li className="active">hallo user: {username}</li>

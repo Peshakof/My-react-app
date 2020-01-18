@@ -2,7 +2,7 @@
 
 .NotFound {
     user-select: none;
-    overflow: hidden;
+    // overflow: hidden;
     min-height: 30em;
     font-size: 20px;
 }
@@ -17,7 +17,7 @@
   opacity: 0.05;
   z-index: 230;
   user-select: none;
-//   user-drag: none;
+  // user-drag: none;
 }
 
 .error {
@@ -59,7 +59,7 @@
   animation: noise-1 .2s linear infinite;
 }
 
-.info {
+.notfound {
   text-align: center;
   font-family: 'Gilda Display', serif;
   font-size: 24px;

@@ -3,7 +3,6 @@
 
 .donut-wrap {
   flex-basis: 40%;
-  margin-top: 50px;
 
   .donut {
     width: 100%;
@@ -12,6 +11,10 @@
     font-family: "Roboto", sans-serif;
     font-size: 1.3em;
     font-weight: 400;
+  }
+
+  @include layout(laptop) {
+    margin-top: 50px;
   }
 
   @include layout(mobile) {
@@ -26,7 +29,7 @@
     flex-basis: 100%;
 
     .donut {
-      font-size: 1.2em;
+      font-size: 2em;
     }
   }
 }
